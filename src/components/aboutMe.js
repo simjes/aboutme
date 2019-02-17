@@ -1,8 +1,12 @@
 import React from "react";
 import styled from "styled-components";
+import Github from "../images/github.svg";
+import Stackoverflow from "../images/stackoverflow.svg";
+import Twitter from "../images/twitter.svg";
+import { MD } from "../theme";
+import "./aboutMe.css";
 import Information from "./information";
 import ProfilePicture from "./profilePicture";
-import Icon from "./Icons";
 
 const Root = styled.div`
   margin-top: 2rem;
@@ -12,7 +16,7 @@ const Profile = styled.div`
   display: flex;
   align-items: center;
 
-  @media (max-width: 768px) {
+  @media (max-width: ${MD}) {
     flex-direction: column;
   }
 `;
@@ -26,7 +30,7 @@ const Details = styled.div`
     margin-top: 1rem;
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: ${MD}) {
     margin-left: 0;
 
     > :first-child {
@@ -45,7 +49,7 @@ const AboutMe = () => {
   return (
     <Root>
       <Profile>
-        <ProfilePicture style={{ borderRadius: "50%" }} />
+        <ProfilePicture />
 
         <Details>
           <Information label="Name" information="Simon Jespersen" />
@@ -59,7 +63,32 @@ const AboutMe = () => {
       </Profile>
 
       <ReachMe>
-        <Icon type="github" />
+        <a
+          href="https://github.com/simjes"
+          title="https://github.com/simjes"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Github className="icon" alt="Github logo" />
+        </a>
+
+        <a
+          href="https://stackoverflow.com/users/4478550/simjes"
+          title="https://stackoverflow.com/users/4478550/simjes"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Stackoverflow className="icon" alt="Stackoverflow logo" />
+        </a>
+
+        <a
+          href="https://twitter.com/itsalwayskos"
+          title="https://twitter.com/itsalwayskos"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Twitter className="icon" alt="Twitter logo" />
+        </a>
       </ReachMe>
     </Root>
   );

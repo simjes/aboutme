@@ -3,11 +3,11 @@ import PropTypes from "prop-types";
 import styled from "styled-components";
 
 const Label = styled.label`
-  color: gray;
+  color: ${props => props.theme.labelTextColor};
 `;
 
 const Detail = styled.div`
-  color: #111111;
+  color: ${props => props.theme.primaryTextColor};
   font-weight: bold;
   font-size: 1.2rem;
 `;

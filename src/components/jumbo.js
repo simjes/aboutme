@@ -8,7 +8,7 @@ const Root = styled.div`
   top: 0;
   left: 0;
   z-index: 2;
-  color: #fff;
+  color: ${props => props.theme.primaryTextColor};
   background: transparent;
   display: flex;
   justify-content: center;

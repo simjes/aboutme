@@ -1,17 +1,25 @@
-import React from "react";
 import PropTypes from "prop-types";
-import SectionTitle from "./sectionTitle";
+import React from "react";
 import styled from "styled-components";
+import SectionTitle from "./sectionTitle";
 
 const Root = styled.div`
-  margin-top: 2rem;
+  max-width: ${props => props.theme.maxWidth};
+  padding: 30px;
+  width: 100%;
+`;
+
+const Content = styled.div`
+  display: flex;
+  justify-content: center;
 `;
 
 const Section = ({ title, children }) => {
   return (
     <Root>
       <SectionTitle title={title} />
-      <div>{children}</div>
+      <hr />
+      <Content>{children}</Content>
     </Root>
   );
 };

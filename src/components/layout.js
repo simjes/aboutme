@@ -1,11 +1,10 @@
-import React from "react";
 import PropTypes from "prop-types";
-import { StaticQuery, graphql } from "gatsby";
-import styled from "styled-components";
-
-import "./layout.css";
-import Jumbo from "./jumbo";
+import React from "react";
+import styled, { ThemeProvider } from "styled-components";
+import { theme } from "../theme";
 import Backdrop from "./backdrop";
+import Jumbo from "./jumbo";
+import "./layout.css";
 
 const Main = styled.main`
   width: 100%;
@@ -16,34 +15,20 @@ const Main = styled.main`
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: white;
+  background: #fff;
 `;
 
 const Layout = ({ children }) => (
-  <StaticQuery
-    query={graphql`
-      query SiteTitleQuery {
-        site {
-          siteMetadata {
-            title
-          }
-        }
-      }
-    `}
-    render={data => (
-      <>
-        <div>
-          <header>
-            <Backdrop />
-            <Jumbo />
-          </header>
+  <ThemeProvider theme={theme}>
+    <>
+      <header>
+        <Backdrop />
+        <Jumbo />
+      </header>
 
-          <Main>{children}</Main>
-          {/* no footer */}
-        </div>
-      </>
-    )}
-  />
+      <Main>{children}</Main>
+    </>
+  </ThemeProvider>
 );
 
 Layout.propTypes = {

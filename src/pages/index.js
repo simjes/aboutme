@@ -12,9 +12,27 @@ const IndexPage = () => (
       <AboutMe />
     </Section>
 
-    <Section title="Experience">ew</Section>
+    <div
+      style={{
+        width: "100%",
+        display: "flex",
+        justifyContent: "center",
+        background: "#ededf0"
+      }}
+    >
+      <Section title="Experience">ew</Section>
+    </div>
 
-    <Section title="Education">ewe</Section>
+    <div
+      style={{
+        width: "100%",
+        display: "flex",
+        justifyContent: "center",
+        background: "#ededf0"
+      }}
+    >
+      <Section title="Education">ewe</Section>
+    </div>
   </Layout>
 );
 

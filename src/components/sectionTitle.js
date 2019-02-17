@@ -4,12 +4,11 @@ import PropTypes from "prop-types";
 
 const Root = styled.div`
   text-align: center;
-  border-bottom: 1px solid black;
 `;
 
 const H1 = styled.h1`
   font-size: 4rem;
-  color: hotpink;
+  color: ${props => props.theme.primaryColor};
 `;
 
 const SectionTitle = ({ title }) => {

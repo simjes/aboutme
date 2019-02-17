@@ -1,6 +1,12 @@
 import { graphql, useStaticQuery } from "gatsby";
 import Img from "gatsby-image";
 import React from "react";
+import styled from "styled-components";
+
+const Image = styled(Img)`
+  border-radius: 50%;
+  border: 10px solid ${props => props.theme.primaryColor}aa;
+`;
 
 const profilePictureQuery = graphql`
   query {
@@ -18,9 +24,8 @@ const ProfilePicture = () => {
   const data = useStaticQuery(profilePictureQuery);
 
   return (
-    <Img
+    <Image
       alt="Profile picture"
-      style={{ borderRadius: "50%" }}
       fixed={data.profilePicture.childImageSharp.fixed}
     />
   );
