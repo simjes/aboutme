@@ -3,7 +3,7 @@ import React from "react";
 import styled, { ThemeProvider } from "styled-components";
 import { theme } from "../theme";
 import Backdrop from "./backdrop";
-import Jumbo from "./jumbo";
+import Jumbotron from "./jumbotron";
 import "./layout.css";
 
 const Main = styled.main`
@@ -23,7 +23,7 @@ const Layout = ({ children }) => (
     <>
       <header>
         <Backdrop />
-        <Jumbo />
+        <Jumbotron />
       </header>
 
       <Main>{children}</Main>

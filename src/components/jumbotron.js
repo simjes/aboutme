@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { MD } from "../theme";
 
 const Root = styled.div`
   height: 100%;
@@ -15,7 +16,7 @@ const Root = styled.div`
   align-items: center;
 `;
 
-const Jumbotron = styled.div`
+const Content = styled.div`
   position: absolute;
   text-align: center;
 `;
@@ -24,23 +25,27 @@ const H1 = styled.h1`
   padding: 10px;
   font-size: 4rem;
   margin: 0;
+
+  @media (max-width: ${MD}) {
+    font-size: 2rem;
+  }
 `;
 
 const H2 = styled.h2`
   padding: 10px;
-  font-size: 2rem;
+  font-size: 1.5rem;
   margin: 0;
 `;
 
-const Jumbo = () => {
+const Jumbotron = () => {
   return (
     <Root>
-      <Jumbotron>
+      <Content>
         <H1>Simon Jespersen</H1>
         <H2>@simjes</H2>
-      </Jumbotron>
+      </Content>
     </Root>
   ); //Todo: add arrow down
 };
 
-export default Jumbo;
+export default Jumbotron;
