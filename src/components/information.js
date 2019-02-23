@@ -1,6 +1,6 @@
-import React from "react";
-import PropTypes from "prop-types";
-import styled from "styled-components";
+import React from 'react';
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
 
 const Label = styled.label`
   color: ${props => props.theme.labelTextColor};
@@ -12,19 +12,18 @@ const Detail = styled.div`
   font-size: 1.2rem;
 `;
 
-// Todo: rename
-const Information = ({ label, information }) => {
+const Information = ({ label, text }) => {
   return (
     <div>
       <Label htmlFor={label}>{label}</Label>
-      <Detail id={label}>{information}</Detail>
+      <Detail id={label}>{text}</Detail>
     </div>
   );
 };
 
 Information.propTypes = {
   label: PropTypes.string.isRequired,
-  information: PropTypes.string.isRequired
+  text: PropTypes.string.isRequired,
 };
 
 export default Information;

@@ -1,6 +1,6 @@
-import React from "react";
-import styled from "styled-components";
-import PropTypes from "prop-types";
+import React from 'react';
+import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
 const Root = styled.div`
   text-align: center;
@@ -20,7 +20,7 @@ const SectionTitle = ({ title }) => {
 };
 
 SectionTitle.propTypes = {
-  title: PropTypes.string.isRequired
+  title: PropTypes.string.isRequired,
 };
 
 export default SectionTitle;

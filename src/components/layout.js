@@ -1,10 +1,10 @@
-import PropTypes from "prop-types";
-import React from "react";
-import styled, { ThemeProvider } from "styled-components";
-import { theme } from "../theme";
-import Backdrop from "./backdrop";
-import Jumbotron from "./jumbotron";
-import "./layout.css";
+import PropTypes from 'prop-types';
+import React from 'react';
+import styled, { ThemeProvider } from 'styled-components';
+import { theme } from '../theme';
+import Backdrop from './backdrop';
+import Jumbotron from './jumbotron';
+import './layout.css';
 
 const Main = styled.main`
   width: 100%;
@@ -15,7 +15,7 @@ const Main = styled.main`
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: #fff;
+  background: ${props => props.theme.backgroundColor};
 `;
 
 const Layout = ({ children }) => (
@@ -32,7 +32,7 @@ const Layout = ({ children }) => (
 );
 
 Layout.propTypes = {
-  children: PropTypes.node.isRequired
+  children: PropTypes.node.isRequired,
 };
 
 export default Layout;

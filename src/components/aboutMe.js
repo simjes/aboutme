@@ -1,12 +1,11 @@
-import React from "react";
-import styled from "styled-components";
-import Github from "../images/github.svg";
-import Stackoverflow from "../images/stackoverflow.svg";
-import Twitter from "../images/twitter.svg";
-import { MD } from "../theme";
-import "./aboutMe.css";
-import Information from "./information";
-import ProfilePicture from "./profilePicture";
+import React from 'react';
+import styled from 'styled-components';
+import Github from '../images/github.svg';
+import Stackoverflow from '../images/stackoverflow.svg';
+import Twitter from '../images/twitter.svg';
+import { MD } from '../theme';
+import Information from './information';
+import ProfilePicture from './profilePicture';
 
 const Root = styled.div`
   margin-top: 2rem;
@@ -43,6 +42,11 @@ const ReachMe = styled.div`
   display: flex;
   justify-content: space-evenly;
   margin-top: 3rem;
+
+  .icon {
+    height: 50px;
+    width: 50px;
+  }
 `;
 
 const AboutMe = () => {
@@ -52,42 +56,42 @@ const AboutMe = () => {
         <ProfilePicture />
 
         <Details>
-          <Information label="Name" information="Simon Jespersen" />
+          <Information label='Name' text='Simon Jespersen' />
 
-          <Information label="Email" information="simjes91@me.com" />
+          <Information label='Email' text='simjes91@me.com' />
 
-          <Information label="Company" information="Olavstoppen" />
+          <Information label='Company' text='Olavstoppen' />
 
-          <Information label="Location" information="Stavanger, Norway" />
+          <Information label='Location' text='Stavanger, Norway' />
         </Details>
       </Profile>
 
       <ReachMe>
         <a
-          href="https://github.com/simjes"
-          title="https://github.com/simjes"
-          target="_blank"
-          rel="noopener noreferrer"
+          href='https://github.com/simjes'
+          title='https://github.com/simjes'
+          target='_blank'
+          rel='noopener noreferrer'
         >
-          <Github className="icon" alt="Github logo" />
+          <Github className='icon' alt='Github logo' />
         </a>
 
         <a
-          href="https://stackoverflow.com/users/4478550/simjes"
-          title="https://stackoverflow.com/users/4478550/simjes"
-          target="_blank"
-          rel="noopener noreferrer"
+          href='https://stackoverflow.com/users/4478550/simjes'
+          title='https://stackoverflow.com/users/4478550/simjes'
+          target='_blank'
+          rel='noopener noreferrer'
         >
-          <Stackoverflow className="icon" alt="Stackoverflow logo" />
+          <Stackoverflow className='icon' alt='Stackoverflow logo' />
         </a>
 
         <a
-          href="https://twitter.com/itsalwayskos"
-          title="https://twitter.com/itsalwayskos"
-          target="_blank"
-          rel="noopener noreferrer"
+          href='https://twitter.com/itsalwayskos'
+          title='https://twitter.com/itsalwayskos'
+          target='_blank'
+          rel='noopener noreferrer'
         >
-          <Twitter className="icon" alt="Twitter logo" />
+          <Twitter className='icon' alt='Twitter logo' />
         </a>
       </ReachMe>
     </Root>

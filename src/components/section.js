@@ -1,7 +1,7 @@
-import PropTypes from "prop-types";
-import React from "react";
-import styled from "styled-components";
-import SectionTitle from "./sectionTitle";
+import PropTypes from 'prop-types';
+import React from 'react';
+import styled from 'styled-components';
+import SectionTitle from './sectionTitle';
 
 const Root = styled.div`
   max-width: ${props => props.theme.maxWidth};
@@ -26,7 +26,7 @@ const Section = ({ title, children }) => {
 
 Section.propTypes = {
   title: PropTypes.string.isRequired,
-  children: PropTypes.node.isRequired
+  children: PropTypes.node.isRequired,
 };
 
 export default Section;
