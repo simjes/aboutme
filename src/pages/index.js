@@ -26,6 +26,8 @@ const IndexPage = () => (
         <InfoGrid experience={tempExperience} />
       </Section>
     </WorkAndEducation>
+
+    <Section title='Projects'>poew</Section>
   </Layout>
 );
 
