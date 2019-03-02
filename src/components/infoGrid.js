@@ -1,4 +1,4 @@
-import PropTypes from 'prop-types';
+import { useStaticQuery } from 'gatsby';
 import React from 'react';
 import styled from 'styled-components';
 import Company from './company';
@@ -14,16 +14,32 @@ const Grid = styled.div`
   }
 `;
 
-const InfoGrid = ({ experience }) => (
-  <Grid>
-    {experience.map(exp => (
-      <Company key={exp.id} {...exp} />
-    ))}
-  </Grid>
-);
+const companiesQuery = graphql`
+  query {
+    prisma {
+      companies {
+        id
+        name
+        logoFile
+        name
+        position
+        period
+        active
+      }
+    }
+  }
+`;
 
-InfoGrid.propTypes = {
-  experience: PropTypes.array.isRequired,
+const InfoGrid = () => {
+  const { prisma } = useStaticQuery(companiesQuery);
+
+  return (
+    <Grid>
+      {prisma.companies.map(company => (
+        <Company key={company.id} {...company} />
+      ))}
+    </Grid>
+  );
 };
 
 export default InfoGrid;

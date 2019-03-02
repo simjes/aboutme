@@ -1,3 +1,4 @@
+import { graphql, useStaticQuery } from 'gatsby';
 import React from 'react';
 import styled from 'styled-components';
 import Github from '../images/github.svg';
@@ -49,27 +50,45 @@ const ReachMe = styled.div`
   }
 `;
 
+const aboutMeQuery = graphql`
+  query {
+    prisma {
+      user(where: { email: "simjes91@me.com" }) {
+        name
+        email
+        company
+        location
+        github
+        linkedin
+        stackoverflow
+      }
+    }
+  }
+`;
+
 const AboutMe = () => {
+  const { prisma } = useStaticQuery(aboutMeQuery);
+
   return (
     <Root>
       <Profile>
         <ProfilePicture />
 
         <Details>
-          <Information label='Name' text='Simon Jespersen' />
+          <Information label='Name' text={prisma.user.name} />
 
-          <Information label='Email' text='simjes91@me.com' />
+          <Information label='Email' text={prisma.user.email} />
 
-          <Information label='Company' text='Olavstoppen' />
+          <Information label='Company' text={prisma.user.company} />
 
-          <Information label='Location' text='Stavanger, Norway' />
+          <Information label='Location' text={prisma.user.location} />
         </Details>
       </Profile>
 
       <ReachMe>
         <a
-          href='https://github.com/simjes'
-          title='https://github.com/simjes'
+          href={prisma.user.github}
+          title={prisma.user.github}
           target='_blank'
           rel='noopener noreferrer'
         >
@@ -77,8 +96,8 @@ const AboutMe = () => {
         </a>
 
         <a
-          href='https://stackoverflow.com/users/4478550/simjes'
-          title='https://stackoverflow.com/users/4478550/simjes'
+          href={prisma.user.stackoverflow}
+          title={prisma.user.stackoverflow}
           target='_blank'
           rel='noopener noreferrer'
         >
@@ -86,8 +105,8 @@ const AboutMe = () => {
         </a>
 
         <a
-          href='https://www.linkedin.com/in/simjes/'
-          title='https://www.linkedin.com/in/simjes/'
+          href={prisma.user.linkedin}
+          title={prisma.user.linkedin}
           target='_blank'
           rel='noopener noreferrer'
         >
