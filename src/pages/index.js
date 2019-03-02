@@ -15,7 +15,7 @@ const WorkAndEducation = styled.div`
 
 const IndexPage = () => (
   <Layout>
-    <SEO title='Home' keywords={[`gatsby`, `application`, `react`]} />
+    <SEO title='Home' keywords={[`aboutme`, `simjes`, `react`]} />
 
     <Section title='About me'>
       <AboutMe />
@@ -26,8 +26,6 @@ const IndexPage = () => (
         <InfoGrid experience={tempExperience} />
       </Section>
     </WorkAndEducation>
-
-    <Section title='Projects'>poew</Section>
   </Layout>
 );
 
@@ -45,7 +43,7 @@ const tempExperience = [
   {
     id: 666,
     logoFile: 'capgemini.jpg',
-    name: 'Capgemini Norge',
+    name: 'Capgemini Norway',
     position: 'Fullstack developer',
     period: '2017-2019',
     active: false,

@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import Company from './company';
 
 const Grid = styled.div`
-  width: 80%;
+  width: 100%;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
   grid-gap: 1rem;

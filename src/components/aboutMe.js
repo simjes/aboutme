@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import Github from '../images/github.svg';
+import Linkedin from '../images/linkedin.svg';
 import Stackoverflow from '../images/stackoverflow.svg';
-import Twitter from '../images/twitter.svg';
 import { MD } from '../theme';
 import Information from './information';
 import ProfilePicture from './profilePicture';
@@ -86,12 +86,12 @@ const AboutMe = () => {
         </a>
 
         <a
-          href='https://twitter.com/itsalwayskos'
-          title='https://twitter.com/itsalwayskos'
+          href='https://www.linkedin.com/in/simjes/'
+          title='https://www.linkedin.com/in/simjes/'
           target='_blank'
           rel='noopener noreferrer'
         >
-          <Twitter className='icon' alt='Twitter logo' />
+          <Linkedin className='icon' alt='Linkedin logo' />
         </a>
       </ReachMe>
     </Root>
