@@ -9,6 +9,9 @@ import Information from './information';
 import ProfilePicture from './profilePicture';
 
 const Root = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   margin-top: 2rem;
 `;
 
@@ -42,11 +45,16 @@ const Details = styled.div`
 const ReachMe = styled.div`
   display: flex;
   justify-content: space-evenly;
+  width: 40%;
   margin-top: 3rem;
 
   .icon {
-    height: 50px;
-    width: 50px;
+    height: 40px;
+    width: 40px;
+  }
+
+  @media (max-width: ${MD}) {
+    width: 80%;
   }
 `;
 

@@ -10,3 +10,4 @@ export const theme = {
 };
 
 export const MD = '768px';
+export const XS = '576px';

@@ -1,16 +1,22 @@
 import { graphql, useStaticQuery } from 'gatsby';
 import React from 'react';
 import styled from 'styled-components';
+import { XS } from '../theme';
 import Company from './company';
 
 const Grid = styled.div`
-  width: 100%;
+  --gridItemMin: 400px;
+
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(var(--gridItemMin), 1fr));
   grid-gap: 1rem;
 
   > * {
     margin-top: 4rem;
+  }
+
+  @media (max-width: ${XS}) {
+    --gridItemMin: 1fr;
   }
 `;
 
