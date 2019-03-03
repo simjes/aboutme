@@ -40,7 +40,7 @@ const Company = ({ logoFile, name, position, period, active }) => {
 };
 
 Company.propTypes = {
-  logo: PropTypes.string.isRequired,
+  logoFile: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   position: PropTypes.string.isRequired,
   period: PropTypes.string.isRequired,
