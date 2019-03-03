@@ -94,7 +94,6 @@ const AboutMe = () => {
         >
           <Github className='icon' alt='Github logo' />
         </a>
-
         <a
           href={prisma.user.stackoverflow}
           title={prisma.user.stackoverflow}
@@ -103,7 +102,6 @@ const AboutMe = () => {
         >
           <Stackoverflow className='icon' alt='Stackoverflow logo' />
         </a>
-
         <a
           href={prisma.user.linkedin}
           title={prisma.user.linkedin}
@@ -112,6 +110,7 @@ const AboutMe = () => {
         >
           <Linkedin className='icon' alt='Linkedin logo' />
         </a>
+        testing now build
       </ReachMe>
     </Root>
   );
