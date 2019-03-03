@@ -1,6 +1,7 @@
 {
   "version": 2,
   "name": "aboutme-simjes",
+  "alias": "simjes.dev",
   "builds": [
     {
       "src": "package.json",
@@ -10,9 +11,11 @@
       }
     }
   ],
-  "env": {
-    "PRISMA_ENDPOINT": "https://aboutme-e6f6972b33.herokuapp.com/aboutme-prod/prod",
-    "PRISMA_TOKEN": "@prisma-token"
+  "build": {
+    "env": {
+      "PRISMA_ENDPOINT": "https://aboutme-e6f6972b33.herokuapp.com/aboutme-prod/prod",
+      "PRISMA_TOKEN": "@prisma-token"
+    }
   },
   "routes": [
     {

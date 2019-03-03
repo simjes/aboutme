@@ -110,7 +110,6 @@ const AboutMe = () => {
         >
           <Linkedin className='icon' alt='Linkedin logo' />
         </a>
-        testing now build
       </ReachMe>
     </Root>
   );
