@@ -45,6 +45,10 @@ module.exports = {
         typeName: 'PRISMA',
         fieldName: 'prisma',
         url: process.env.PRISMA_ENDPOINT,
+        headers: {
+          Authorization: `Bearer ${process.env.PRISMA_TOKEN}`,
+        },
+        refetchInterval: 60,
       },
     },
     `gatsby-plugin-styled-components`,

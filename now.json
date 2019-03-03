@@ -1,0 +1,37 @@
+{
+  "version": 2,
+  "name": "aboutme-simjes",
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@now/static-build",
+      "config": {
+        "distDir": "public"
+      }
+    }
+  ],
+  "env": {
+    "PRISMA_ENDPOINT": "https://aboutme-e6f6972b33.herokuapp.com/aboutme-prod/prod",
+    "PRISMA_TOKEN": "@prisma-token"
+  },
+  "routes": [
+    {
+      "src": "^/public/static/(.*)",
+      "headers": {
+        "cache-control": "public,max-age=31536000,immutable"
+      }
+    },
+    {
+      "src": "^/(.*).(css|js)",
+      "headers": {
+        "cache-control": "public,max-age=31536000,immutable"
+      }
+    },
+    {
+      "src": "^/(.*).html",
+      "headers": {
+        "cache-control": "public,max-age=0,must-revalidate"
+      }
+    }
+  ]
+}

@@ -1,4 +1,4 @@
-import { useStaticQuery } from 'gatsby';
+import { graphql, useStaticQuery } from 'gatsby';
 import React from 'react';
 import styled from 'styled-components';
 import Company from './company';
@@ -17,7 +17,7 @@ const Grid = styled.div`
 const companiesQuery = graphql`
   query {
     prisma {
-      companies {
+      companies(orderBy: startDate_DESC) {
         id
         name
         logoFile
