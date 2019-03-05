@@ -4,7 +4,7 @@ export const theme = {
   primaryColor: '#0074e5',
   secondaryColor: '#16da00',
   primaryTextColor: '#282A36',
-  labelTextColor: '#808080',
+  labelTextColor: '#282A36CC',
   footerColor: '#2b2c32',
   maxWidth: '1200px',
 };
