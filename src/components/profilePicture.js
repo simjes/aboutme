@@ -5,14 +5,13 @@ import styled from 'styled-components';
 
 const Image = styled(Img)`
   border-radius: 50%;
-  border: 10px solid ${props => props.theme.primaryColor}aa;
 `;
 
 const profilePictureQuery = graphql`
   query {
     profilePicture: file(relativePath: { eq: "profilePicture.jpg" }) {
       childImageSharp {
-        fixed(width: 250, height: 280) {
+        fixed(width: 250, height: 250) {
           ...GatsbyImageSharpFixed
         }
       }
