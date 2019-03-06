@@ -5,6 +5,7 @@ import { theme } from '../theme';
 import Backdrop from './backdrop';
 import Jumbotron from './jumbotron';
 import './layout.css';
+import ScrollToContent from './scrollToContent';
 
 const Main = styled.main`
   width: 100%;
@@ -26,6 +27,7 @@ const Layout = ({ children }) => (
         <Jumbotron />
       </header>
 
+      <ScrollToContent />
       <Main>{children}</Main>
     </>
   </ThemeProvider>
