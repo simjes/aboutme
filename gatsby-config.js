@@ -53,11 +53,19 @@ module.exports = {
     },
     `gatsby-plugin-styled-components`,
     {
-      resolve: 'gatsby-plugin-web-font-loader',
+      resolve: `gatsby-plugin-prefetch-google-fonts`,
       options: {
-        google: {
-          families: ['Indie Flower', 'Lato', 'Montserrat'],
-        },
+        fonts: [
+          {
+            family: `Indie Flower`,
+          },
+          {
+            family: `Lato`,
+          },
+          {
+            family: `Montserrat`,
+          },
+        ],
       },
     },
   ],
