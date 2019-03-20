@@ -1,15 +1,11 @@
-const shark = '#2b2c32';
-
 export const theme = {
-  backgroundColor: '#fff',
-  foregroundColor: '#ededf0',
-  primaryColor: '#0074e5',
+  backgroundColor: '#1B1B35',
+  foregroundColor: '#24243E',
+  primaryColor: '#ff6d00',
   secondaryColor: '#16da00',
-  primaryTextColor: '#282A36',
-  secondaryTextColor: '#fff',
-  labelTextColor: '#282A36CC',
-  footerColor: shark,
-  overlayBackgroundColor: shark,
+  primaryTextColor: '#ffffff',
+  labelTextColor: '#ffffffcc',
+  overlayBackgroundColor: '#1B1B35',
   maxWidth: '1200px',
 };
 

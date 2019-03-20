@@ -15,7 +15,7 @@ const Root = styled.div`
   bottom: 0;
   right: 10%;
   z-index: 4;
-  color: ${props => props.theme.secondaryTextColor};
+  color: ${props => props.theme.primaryTextColor};
   background: ${props => props.theme.overlayBackgroundColor};
   transition: all 0.2s ease-in-out;
 

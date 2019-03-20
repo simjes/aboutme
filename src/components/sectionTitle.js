@@ -8,8 +8,8 @@ const Root = styled.div`
 `;
 
 const H1 = styled.h1`
-  font-size: 4rem;
-  color: ${props => props.theme.primaryColor};
+  font-size: 3rem;
+  color: ${props => props.theme.primaryTextColor};
 
   @media (max-width: ${MD}) {
     font-size: 2rem;
@@ -20,7 +20,6 @@ const SectionTitle = ({ title }) => {
   return (
     <Root>
       <H1>{title}</H1>
-      <hr />
     </Root>
   );
 };

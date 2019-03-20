@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
-import SectionTitle from './sectionTitle';
 import { XS } from '../theme';
+import SectionTitle from './sectionTitle';
 
 const Root = styled.div`
   display: flex;
@@ -10,13 +10,15 @@ const Root = styled.div`
   align-items: center;
   width: 100%;
   background: ${props =>
-    props.highlight ? props.theme.foregroundColor : '#fff'};
+    props.highlight
+      ? props.theme.foregroundColor
+      : props.theme.backgroundColor};
 `;
 
 const Content = styled.div`
   width: 100%;
   max-width: ${props => props.theme.maxWidth};
-  padding: 30px;
+  padding: 50px;
 
   @media (max-width: ${XS}) {
     padding: 10px;

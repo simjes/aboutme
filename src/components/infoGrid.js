@@ -12,11 +12,15 @@ const Grid = styled.div`
   grid-gap: 1rem;
 
   > * {
-    margin-top: 4rem;
+    margin-top: 2rem;
   }
 
   @media (max-width: ${XS}) {
     --gridItemMin: 1fr;
+
+    > * {
+      margin-top: 3rem;
+    }
   }
 `;
 

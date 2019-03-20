@@ -9,11 +9,11 @@ const IndexPage = () => (
   <Layout>
     <SEO title='Home' keywords={[`aboutme`, `simjes`, `react`]} />
 
-    <Section title='About me' highlight>
+    <Section title='About me 👷‍♂️' highlight>
       <AboutMe />
     </Section>
 
-    <Section title='Work & Education'>
+    <Section title='Work & Education 📚'>
       <InfoGrid />
     </Section>
   </Layout>

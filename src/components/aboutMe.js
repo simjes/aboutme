@@ -12,7 +12,7 @@ const Root = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 2rem;
+  margin-top: 3rem;
 `;
 
 const Profile = styled.div`
@@ -64,7 +64,6 @@ const aboutMeQuery = graphql`
       user(where: { email: "simjes91@me.com" }) {
         name
         email
-        company
         location
         github
         linkedin
@@ -86,8 +85,6 @@ const AboutMe = () => {
           <Information label='Name' text={prisma.user.name} />
 
           <Information label='Email' text={prisma.user.email} />
-
-          <Information label='Company' text={prisma.user.company} />
 
           <Information label='Location' text={prisma.user.location} />
         </Details>

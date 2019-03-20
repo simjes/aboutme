@@ -37,6 +37,8 @@ const H2 = styled.h2`
   padding: 10px;
   font-size: 1.5rem;
   margin: 0;
+  font-family: 'Indie Flower', cursive;
+  font-style: italic;
 `;
 
 const Jumbotron = () => {
@@ -44,7 +46,7 @@ const Jumbotron = () => {
     <Root>
       <Content>
         <H1>Simon Jespersen</H1>
-        <H2>@simjes</H2>
+        <H2>Dark theme everything</H2>
       </Content>
     </Root>
   );

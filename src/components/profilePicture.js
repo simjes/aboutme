@@ -5,6 +5,7 @@ import styled from 'styled-components';
 
 const Image = styled(Img)`
   border-radius: 50%;
+  border: 5px solid ${props => props.theme.primaryColor};
 `;
 
 const profilePictureQuery = graphql`

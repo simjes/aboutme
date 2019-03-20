@@ -7,7 +7,16 @@ const Root = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  text-align: center;
+`;
+
+const Content = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px;
+  padding-bottom: ${props => (props.active ? '20px' : 0)};
+  border-bottom: ${props =>
+    props.active ? `4px solid ${props.theme.primaryColor}` : 'none'};
 `;
 
 const LogoContainer = styled.div`
@@ -16,7 +25,7 @@ const LogoContainer = styled.div`
 
   img {
     border-radius: 50%;
-    filter: ${props => (props.active ? 'unset' : 'grayscale(100%)')};
+    background: white;
   }
 `;
 
@@ -29,12 +38,14 @@ const Name = styled.div`
 const Company = ({ logoFile, name, position, period, active }) => {
   return (
     <Root>
-      <LogoContainer active={active}>
-        <CompanyLogo src={logoFile} />
-      </LogoContainer>
-      <Name>{name}</Name>
-      <div>{position}</div>
-      <div>{period}</div>
+      <Content active={active}>
+        <LogoContainer>
+          <CompanyLogo src={logoFile} />
+        </LogoContainer>
+        <Name>{name}</Name>
+        <div>{position}</div>
+        <div>{period}</div>
+      </Content>
     </Root>
   );
 };
