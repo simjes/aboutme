@@ -14,11 +14,13 @@ const Root = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  pointer-events: none;
 `;
 
 const Content = styled.div`
   position: absolute;
   text-align: center;
+  pointer-events: all;
 `;
 
 const H1 = styled.h1`
@@ -45,7 +47,7 @@ const Jumbotron = () => {
         <H2>@simjes</H2>
       </Content>
     </Root>
-  ); //Todo: add arrow down
+  );
 };
 
 export default Jumbotron;
