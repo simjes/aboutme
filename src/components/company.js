@@ -13,6 +13,7 @@ const Content = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  text-align: center;
   margin: 20px;
   padding-bottom: ${props => (props.active ? '20px' : 0)};
   border-bottom: ${props =>
