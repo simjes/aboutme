@@ -5,7 +5,6 @@ export const theme = {
   secondaryColor: '#16da00',
   primaryTextColor: '#ffffff',
   labelTextColor: '#ffffffcc',
-  overlayBackgroundColor: '#1B1B35',
   maxWidth: '1200px',
 };
 

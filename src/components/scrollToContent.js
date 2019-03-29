@@ -16,7 +16,7 @@ const Root = styled.div`
   right: 10%;
   z-index: 4;
   color: ${props => props.theme.primaryTextColor};
-  background: ${props => props.theme.overlayBackgroundColor};
+  background: ${props => props.theme.backgroundColor};
   transition: all 0.2s ease-in-out;
 
   &:hover {

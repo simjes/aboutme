@@ -3,12 +3,9 @@ import React from 'react';
 import styled from 'styled-components';
 import { MD } from '../theme';
 
-const Root = styled.div`
-  text-align: center;
-`;
-
 const H1 = styled.h1`
   font-size: 3rem;
+  text-align: center;
   color: ${props => props.theme.primaryTextColor};
 
   @media (max-width: ${MD}) {
@@ -16,16 +13,17 @@ const H1 = styled.h1`
   }
 `;
 
-const SectionTitle = ({ title }) => {
-  return (
-    <Root>
-      <H1>{title}</H1>
-    </Root>
-  );
+const SectionTitle = ({ title, className }) => {
+  return <H1 className={className}>{title}</H1>;
 };
 
 SectionTitle.propTypes = {
+  className: PropTypes.string,
   title: PropTypes.string.isRequired,
+};
+
+SectionTitle.defaultProps = {
+  className: '',
 };
 
 export default SectionTitle;

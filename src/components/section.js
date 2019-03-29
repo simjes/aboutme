@@ -21,13 +21,13 @@ const Content = styled.div`
   padding: 50px;
 
   @media (max-width: ${XS}) {
-    padding: 10px;
+    padding: 30px 10px;
   }
 `;
 
-const Section = ({ title, children, highlight }) => {
+const Section = ({ className, title, children, highlight }) => {
   return (
-    <Root highlight={highlight}>
+    <Root highlight={highlight} className={className}>
       <Content>
         <SectionTitle title={title} />
 
@@ -38,9 +38,14 @@ const Section = ({ title, children, highlight }) => {
 };
 
 Section.propTypes = {
+  className: PropTypes.string,
   title: PropTypes.string.isRequired,
   children: PropTypes.node.isRequired,
   highlight: PropTypes.bool,
+};
+
+Section.defaultProps = {
+  className: '',
 };
 
 export default Section;
