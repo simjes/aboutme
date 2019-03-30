@@ -4,6 +4,20 @@ import React from 'react';
 import styled from 'styled-components';
 import { MD } from '../theme';
 
+const ScrollToContent = () => {
+  return (
+    <Root
+      onClick={() =>
+        window.scrollTo({ top: window.innerHeight, behavior: 'smooth' })
+      }
+    >
+      <FontAwesomeIcon icon={faArrowDown} size='2x' />
+    </Root>
+  );
+};
+
+export default ScrollToContent;
+
 const Root = styled.button`
   cursor: pointer;
   display: flex;
@@ -31,17 +45,3 @@ const Root = styled.button`
     height: 80px;
   }
 `;
-
-const ScrollToContent = () => {
-  return (
-    <Root
-      onClick={() =>
-        window.scrollTo({ top: window.innerHeight, behavior: 'smooth' })
-      }
-    >
-      <FontAwesomeIcon icon={faArrowDown} size='2x' />
-    </Root>
-  );
-};
-
-export default ScrollToContent;

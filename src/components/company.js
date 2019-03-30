@@ -3,6 +3,31 @@ import React from 'react';
 import styled from 'styled-components';
 import { CompanyLogo } from './companyLogos';
 
+const Company = ({ logoFile, name, position, period, active }) => {
+  return (
+    <Root>
+      <Content active={active}>
+        <LogoContainer>
+          <CompanyLogo src={logoFile} />
+        </LogoContainer>
+        <Name>{name}</Name>
+        <div>{position}</div>
+        <div>{period}</div>
+      </Content>
+    </Root>
+  );
+};
+
+Company.propTypes = {
+  logoFile: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  position: PropTypes.string.isRequired,
+  period: PropTypes.string.isRequired,
+  active: PropTypes.bool.isRequired,
+};
+
+export default Company;
+
 const Root = styled.div`
   display: flex;
   flex-direction: column;
@@ -35,28 +60,3 @@ const Name = styled.div`
   font-weight: bold;
   margin-top: 1rem;
 `;
-
-const Company = ({ logoFile, name, position, period, active }) => {
-  return (
-    <Root>
-      <Content active={active}>
-        <LogoContainer>
-          <CompanyLogo src={logoFile} />
-        </LogoContainer>
-        <Name>{name}</Name>
-        <div>{position}</div>
-        <div>{period}</div>
-      </Content>
-    </Root>
-  );
-};
-
-Company.propTypes = {
-  logoFile: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired,
-  position: PropTypes.string.isRequired,
-  period: PropTypes.string.isRequired,
-  active: PropTypes.bool.isRequired,
-};
-
-export default Company;

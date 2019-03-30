@@ -8,6 +8,55 @@ import { MD } from '../theme';
 import Information from './information';
 import ProfilePicture from './profilePicture';
 
+const AboutMe = () => {
+  const { prisma } = useStaticQuery(aboutMeQuery);
+
+  return (
+    <Root>
+      <Profile>
+        <ProfilePicture />
+
+        <Details>
+          <Information label='Name' text={prisma.user.name} />
+
+          <Information label='Email' text={prisma.user.email} />
+
+          <Information label='Location' text={prisma.user.location} />
+        </Details>
+      </Profile>
+
+      <ReachMe>
+        <Link
+          href={prisma.user.github}
+          title={prisma.user.github}
+          target='_blank'
+          rel='noopener noreferrer'
+        >
+          <Github className='icon' alt='Github logo' />
+        </Link>
+        <Link
+          href={prisma.user.stackoverflow}
+          title={prisma.user.stackoverflow}
+          target='_blank'
+          rel='noopener noreferrer'
+        >
+          <Stackoverflow className='icon' alt='Stackoverflow logo' />
+        </Link>
+        <Link
+          href={prisma.user.linkedin}
+          title={prisma.user.linkedin}
+          target='_blank'
+          rel='noopener noreferrer'
+        >
+          <Linkedin className='icon' alt='Linkedin logo' />
+        </Link>
+      </ReachMe>
+    </Root>
+  );
+};
+
+export default AboutMe;
+
 const Root = styled.div`
   display: flex;
   flex-direction: column;
@@ -76,52 +125,3 @@ const aboutMeQuery = graphql`
     }
   }
 `;
-
-const AboutMe = () => {
-  const { prisma } = useStaticQuery(aboutMeQuery);
-
-  return (
-    <Root>
-      <Profile>
-        <ProfilePicture />
-
-        <Details>
-          <Information label='Name' text={prisma.user.name} />
-
-          <Information label='Email' text={prisma.user.email} />
-
-          <Information label='Location' text={prisma.user.location} />
-        </Details>
-      </Profile>
-
-      <ReachMe>
-        <Link
-          href={prisma.user.github}
-          title={prisma.user.github}
-          target='_blank'
-          rel='noopener noreferrer'
-        >
-          <Github className='icon' alt='Github logo' />
-        </Link>
-        <Link
-          href={prisma.user.stackoverflow}
-          title={prisma.user.stackoverflow}
-          target='_blank'
-          rel='noopener noreferrer'
-        >
-          <Stackoverflow className='icon' alt='Stackoverflow logo' />
-        </Link>
-        <Link
-          href={prisma.user.linkedin}
-          title={prisma.user.linkedin}
-          target='_blank'
-          rel='noopener noreferrer'
-        >
-          <Linkedin className='icon' alt='Linkedin logo' />
-        </Link>
-      </ReachMe>
-    </Root>
-  );
-};
-
-export default AboutMe;

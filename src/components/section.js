@@ -4,27 +4,6 @@ import styled from 'styled-components';
 import { XS } from '../theme';
 import SectionTitle from './sectionTitle';
 
-const Root = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-  background: ${props =>
-    props.highlight
-      ? props.theme.foregroundColor
-      : props.theme.backgroundColor};
-`;
-
-const Content = styled.div`
-  width: 100%;
-  max-width: ${props => props.theme.maxWidth};
-  padding: 50px;
-
-  @media (max-width: ${XS}) {
-    padding: 30px 10px;
-  }
-`;
-
 const Section = ({ className, title, children, highlight }) => {
   return (
     <Root highlight={highlight} className={className}>
@@ -49,3 +28,24 @@ Section.defaultProps = {
 };
 
 export default Section;
+
+const Root = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  background: ${props =>
+    props.highlight
+      ? props.theme.foregroundColor
+      : props.theme.backgroundColor};
+`;
+
+const Content = styled.div`
+  width: 100%;
+  max-width: ${props => props.theme.maxWidth};
+  padding: 50px;
+
+  @media (max-width: ${XS}) {
+    padding: 30px 10px;
+  }
+`;

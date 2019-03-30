@@ -2,6 +2,19 @@ import React from 'react';
 import styled from 'styled-components';
 import { MD } from '../theme';
 
+const Jumbotron = () => {
+  return (
+    <Root>
+      <Content>
+        <H1>Simon Jespersen</H1>
+        <H2>Dark theme everything</H2>
+      </Content>
+    </Root>
+  );
+};
+
+export default Jumbotron;
+
 const Root = styled.div`
   height: 100%;
   width: 100%;
@@ -40,16 +53,3 @@ const H2 = styled.h2`
   font-family: 'Indie Flower', cursive;
   font-style: italic;
 `;
-
-const Jumbotron = () => {
-  return (
-    <Root>
-      <Content>
-        <H1>Simon Jespersen</H1>
-        <H2>Dark theme everything</H2>
-      </Content>
-    </Root>
-  );
-};
-
-export default Jumbotron;

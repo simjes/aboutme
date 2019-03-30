@@ -3,6 +3,18 @@ import Img from 'gatsby-image';
 import React from 'react';
 import styled from 'styled-components';
 
+const ProfilePicture = () => {
+  const data = useStaticQuery(profilePictureQuery);
+
+  return (
+    <Image
+      alt='Profile picture'
+      fixed={data.profilePicture.childImageSharp.fixed}
+    />
+  );
+};
+export default ProfilePicture;
+
 const Image = styled(Img)`
   border-radius: 50%;
   border: 5px solid ${props => props.theme.primaryColor};
@@ -19,15 +31,3 @@ const profilePictureQuery = graphql`
     }
   }
 `;
-
-const ProfilePicture = () => {
-  const data = useStaticQuery(profilePictureQuery);
-
-  return (
-    <Image
-      alt='Profile picture'
-      fixed={data.profilePicture.childImageSharp.fixed}
-    />
-  );
-};
-export default ProfilePicture;

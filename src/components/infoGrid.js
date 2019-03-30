@@ -4,6 +4,20 @@ import styled from 'styled-components';
 import { XS } from '../theme';
 import Company from './company';
 
+const InfoGrid = () => {
+  const { prisma } = useStaticQuery(companiesQuery);
+
+  return (
+    <Grid>
+      {prisma.companies.map(company => (
+        <Company key={company.id} {...company} />
+      ))}
+    </Grid>
+  );
+};
+
+export default InfoGrid;
+
 const Grid = styled.div`
   --gridItemMin: 400px;
 
@@ -39,17 +53,3 @@ const companiesQuery = graphql`
     }
   }
 `;
-
-const InfoGrid = () => {
-  const { prisma } = useStaticQuery(companiesQuery);
-
-  return (
-    <Grid>
-      {prisma.companies.map(company => (
-        <Company key={company.id} {...company} />
-      ))}
-    </Grid>
-  );
-};
-
-export default InfoGrid;
