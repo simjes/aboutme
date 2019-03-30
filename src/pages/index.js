@@ -1,6 +1,6 @@
 import React from 'react';
 import AboutMe from '../components/aboutMe';
-import CurrentProject from '../components/CurrentProject';
+import CurrentProject from '../components/currentProject';
 import InfoGrid from '../components/infoGrid';
 import Layout from '../components/layout';
 import Section from '../components/section';
