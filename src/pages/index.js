@@ -1,6 +1,7 @@
 import React from 'react';
 import AboutMe from '../components/aboutMe';
 import CurrentProject from '../components/currentProject';
+import Footer from '../components/footer';
 import InfoGrid from '../components/infoGrid';
 import Layout from '../components/layout';
 import Section from '../components/section';
@@ -20,6 +21,8 @@ const IndexPage = () => (
     </Section>
 
     <CurrentProject />
+
+    <Footer />
   </Layout>
 );
 
