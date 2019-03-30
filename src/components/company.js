@@ -6,7 +6,7 @@ import { CompanyLogo } from './companyLogos';
 const Company = ({ logoFile, name, position, period, active }) => {
   return (
     <Root>
-      <Content active={active}>
+      <Content active={active} tabIndex='0'>
         <LogoContainer>
           <CompanyLogo src={logoFile} />
         </LogoContainer>
@@ -41,8 +41,13 @@ const Content = styled.div`
   text-align: center;
   margin: 20px;
   padding-bottom: ${props => (props.active ? '20px' : 0)};
-  border-bottom: ${props =>
-    props.active ? `4px solid ${props.theme.primaryColor}` : 'none'};
+  outline: none;
+  border-bottom: 4px solid
+    ${props => (props.active ? `${props.theme.primaryColor}` : 'transparent')};
+
+  &.focus-visible {
+    border-color: ${props => props.theme.secondaryColor};
+  }
 `;
 
 const LogoContainer = styled.div`

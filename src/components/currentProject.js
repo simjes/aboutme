@@ -11,14 +11,17 @@ const CurrentProject = () => {
   return (
     <Root>
       <Section>
-        <Content>
+        <Content tabIndex='0'>
           <SectionTitle title='Current Project' />
 
           <p>I am currently working on an unnamed food application.</p>
 
           <p>
             The frontend is built with Next.js and Apollo, while the backend is
-            written in Node with Prisma ❤️
+            written in Node with Prisma
+            <span role='img' aria-label='heart emoji'>
+              ❤️
+            </span>
           </p>
 
           <p>Authentication is done using Auth0.</p>
@@ -79,9 +82,14 @@ const Content = styled.div`
   padding: 20px;
   background: ${props => props.theme.backgroundColor}ee;
   border-bottom: 4px solid ${props => props.theme.primaryColor};
+  outline: none;
 
   @media (max-width: ${XS}) {
     max-width: 340px;
+  }
+
+  &.focus-visible {
+    border-color: ${props => props.theme.secondaryColor};
   }
 `;
 

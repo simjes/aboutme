@@ -5,6 +5,7 @@ import InfoGrid from '../components/infoGrid';
 import Layout from '../components/layout';
 import Section from '../components/section';
 import SEO from '../components/seo';
+require('focus-visible');
 
 const IndexPage = () => (
   <Layout>
