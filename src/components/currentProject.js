@@ -10,7 +10,7 @@ const CurrentProject = () => {
 
   return (
     <Root>
-      <Section>
+      <ContentWrapper>
         <Content tabIndex='0'>
           <SectionTitle title='Current Project' />
 
@@ -26,7 +26,7 @@ const CurrentProject = () => {
 
           <p>Authentication is done using Auth0.</p>
         </Content>
-      </Section>
+      </ContentWrapper>
 
       <Img
         style={{
@@ -48,14 +48,14 @@ CurrentProject.propTypes = {};
 
 export default CurrentProject;
 
-const Root = styled.div`
+const Root = styled.section`
   display: flex;
   justify-content: center;
   position: relative;
   width: 100%;
 `;
 
-const Section = styled.div`
+const ContentWrapper = styled.div`
   display: flex;
   justify-content: center;
   position: relative;

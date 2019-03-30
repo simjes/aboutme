@@ -1,4 +1,5 @@
 import React from 'react';
+import styled from 'styled-components';
 import AboutMe from '../components/aboutMe';
 import CurrentProject from '../components/currentProject';
 import Footer from '../components/footer';
@@ -12,18 +13,38 @@ const IndexPage = () => (
   <Layout>
     <SEO title='Home' keywords={[`aboutme`, `simjes`, `react`]} />
 
-    <Section title='About me 👷‍♂️' highlight>
-      <AboutMe />
-    </Section>
+    <Content>
+      <Main>
+        <Section title='About me 👷‍♂️' highlight>
+          <AboutMe />
+        </Section>
 
-    <Section title='Work & Education 📚'>
-      <InfoGrid />
-    </Section>
+        <Section title='Work & Education 📚'>
+          <InfoGrid />
+        </Section>
 
-    <CurrentProject />
+        <CurrentProject />
+      </Main>
 
-    <Footer />
+      <Footer />
+    </Content>
   </Layout>
 );
 
 export default IndexPage;
+
+const Content = styled.div`
+  width: 100%;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: ${props => props.theme.backgroundColor};
+`;
+
+const Main = styled.main`
+  width: 100%;
+`;

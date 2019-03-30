@@ -16,7 +16,7 @@ const Layout = ({ children }) => (
       </header>
 
       <ScrollToContent />
-      <Main>{children}</Main>
+      {children}
     </>
   </ThemeProvider>
 );
@@ -26,15 +26,3 @@ Layout.propTypes = {
 };
 
 export default Layout;
-
-const Main = styled.main`
-  width: 100%;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  z-index: 3;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background: ${props => props.theme.backgroundColor};
-`;

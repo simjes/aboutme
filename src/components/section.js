@@ -29,7 +29,7 @@ Section.defaultProps = {
 
 export default Section;
 
-const Root = styled.div`
+const Root = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
