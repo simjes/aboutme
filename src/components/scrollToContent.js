@@ -31,8 +31,11 @@ const Root = styled.button`
   z-index: 4;
   color: ${props => props.theme.primaryTextColor};
   background: ${props => props.theme.backgroundColor};
-  transition: all 0.2s ease-in-out;
   border: none;
+
+  svg {
+    transition: all 0.2s ease-in-out;
+  }
 
   &:hover {
     svg {
