@@ -40,7 +40,7 @@ const Content = styled.div`
   align-items: center;
   text-align: center;
   margin: 20px;
-  padding-bottom: ${props => (props.active ? '20px' : 0)};
+  padding-bottom: 20px;
   outline: none;
   border-bottom: 4px solid
     ${props => (props.active ? `${props.theme.primaryColor}` : 'transparent')};
