@@ -24,6 +24,10 @@ const Profile = styled.div`
   }
 `;
 
+const Link = styled.a`
+  height: 40px;
+`;
+
 const Details = styled.div`
   display: flex;
   flex-direction: column;
@@ -91,30 +95,30 @@ const AboutMe = () => {
       </Profile>
 
       <ReachMe>
-        <a
+        <Link
           href={prisma.user.github}
           title={prisma.user.github}
           target='_blank'
           rel='noopener noreferrer'
         >
           <Github className='icon' alt='Github logo' />
-        </a>
-        <a
+        </Link>
+        <Link
           href={prisma.user.stackoverflow}
           title={prisma.user.stackoverflow}
           target='_blank'
           rel='noopener noreferrer'
         >
           <Stackoverflow className='icon' alt='Stackoverflow logo' />
-        </a>
-        <a
+        </Link>
+        <Link
           href={prisma.user.linkedin}
           title={prisma.user.linkedin}
           target='_blank'
           rel='noopener noreferrer'
         >
           <Linkedin className='icon' alt='Linkedin logo' />
-        </a>
+        </Link>
       </ReachMe>
     </Root>
   );

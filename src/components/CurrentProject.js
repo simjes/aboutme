@@ -58,10 +58,10 @@ const Section = styled.div`
   position: relative;
   z-index: 2;
   width: 100%;
-  padding: 50px;
+  padding: 200px 50px;
 
   @media (max-width: ${XS}) {
-    padding: 30px 10px;
+    padding: 150px 10px;
   }
 `;
 

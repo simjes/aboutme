@@ -4,7 +4,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { MD } from '../theme';
 
-const Root = styled.div`
+const Root = styled.button`
   cursor: pointer;
   display: flex;
   justify-content: center;
@@ -18,6 +18,7 @@ const Root = styled.div`
   color: ${props => props.theme.primaryTextColor};
   background: ${props => props.theme.backgroundColor};
   transition: all 0.2s ease-in-out;
+  border: none;
 
   &:hover {
     svg {
