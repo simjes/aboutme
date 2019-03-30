@@ -53,19 +53,9 @@ module.exports = {
     },
     `gatsby-plugin-styled-components`,
     {
-      resolve: `gatsby-plugin-prefetch-google-fonts`,
+      resolve: `gatsby-plugin-typography`,
       options: {
-        fonts: [
-          {
-            family: `Indie Flower`,
-          },
-          {
-            family: `Lato`,
-          },
-          {
-            family: `Montserrat`,
-          },
-        ],
+        pathToConfigModule: `src/utils/typography`,
       },
     },
   ],
