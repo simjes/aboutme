@@ -7,6 +7,7 @@ import { MD } from '../theme';
 const ScrollToContent = () => {
   return (
     <Root
+      aria-label='Scroll to content'
       onClick={() =>
         window.scrollTo({ top: window.innerHeight, behavior: 'smooth' })
       }

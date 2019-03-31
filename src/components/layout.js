@@ -13,9 +13,10 @@ const Layout = ({ children }) => (
       <header>
         <Backdrop />
         <Jumbotron />
+
+        <ScrollToContent />
       </header>
 
-      <ScrollToContent />
       {children}
     </>
   </ThemeProvider>
