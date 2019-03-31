@@ -97,6 +97,8 @@ const Details = styled.div`
 
 const ReachMe = styled.div`
   display: flex;
+  /* Fallback for Edge */
+  justify-content: space-between;
   justify-content: space-evenly;
   width: 40%;
   margin-top: 3rem;

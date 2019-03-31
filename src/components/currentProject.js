@@ -80,6 +80,8 @@ const Overlay = styled.div`
 const Content = styled.div`
   max-width: 500px;
   padding: 20px;
+  /* Fallback background for Edge */
+  background: ${props => props.theme.backgroundColor};
   background: ${props => props.theme.backgroundColor}ee;
   border-bottom: 4px solid ${props => props.theme.primaryColor};
   outline: none;
