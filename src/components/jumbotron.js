@@ -5,10 +5,10 @@ import { MD } from '../theme';
 const Jumbotron = () => {
   return (
     <Root>
-      <Content>
+      <Hgroup>
         <H1>Simon Jespersen</H1>
         <H2>Dark theme everything</H2>
-      </Content>
+      </Hgroup>
     </Root>
   );
 };
@@ -30,7 +30,7 @@ const Root = styled.div`
   pointer-events: none;
 `;
 
-const Content = styled.div`
+const Hgroup = styled.hgroup`
   position: absolute;
   text-align: center;
   pointer-events: all;

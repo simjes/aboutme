@@ -38,6 +38,7 @@ template {
   display: none;
 }
 a {
+  color: #ff6d00;
   background-color: transparent;
   -webkit-text-decoration-skip: objects;
 }
@@ -70,7 +71,7 @@ mark {
   color: #000;
 }
 small {
-  font-size: 80%;
+  font-size: 0.5rem;
 }
 sub,
 sup {

@@ -15,11 +15,11 @@ const IndexPage = () => (
 
     <Content>
       <Main>
-        <Section title='About me 👷‍♂️' highlight>
+        <Section title='About me️' highlight>
           <AboutMe />
         </Section>
 
-        <Section title='Work & Education 📚'>
+        <Section title='Work & Education'>
           <InfoGrid />
         </Section>
 
