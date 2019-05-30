@@ -5,10 +5,10 @@ import { MD } from '../theme';
 const Jumbotron = () => {
   return (
     <Root>
-      <Hgroup>
+      <Content>
         <H1>Simon Jespersen</H1>
-        <H2>Dark theme everything</H2>
-      </Hgroup>
+        <Quote>Dark theme everything</Quote>
+      </Content>
     </Root>
   );
 };
@@ -30,7 +30,7 @@ const Root = styled.div`
   pointer-events: none;
 `;
 
-const Hgroup = styled.hgroup`
+const Content = styled.div`
   position: absolute;
   text-align: center;
   pointer-events: all;
@@ -46,10 +46,14 @@ const H1 = styled.h1`
   }
 `;
 
-const H2 = styled.h2`
+const Quote = styled.q`
   padding: 10px;
   font-size: 1.5rem;
   margin: 0;
   font-family: 'Indie Flower', cursive;
   font-style: italic;
+
+  @media (max-width: ${MD}) {
+    font-size: 1rem;
+  }
 `;

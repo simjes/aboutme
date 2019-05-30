@@ -52,7 +52,7 @@ const Root = styled.footer`
   padding: 100px 50px;
 `;
 
-const Quote = styled.div`
+const Quote = styled.q`
   font-family: 'Indie Flower', cursive;
   font-style: italic;
   outline: none;

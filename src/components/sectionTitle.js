@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { MD } from '../theme';
 
 const SectionTitle = ({ title, className }) => {
-  return <H1 className={className}>{title}</H1>;
+  return <H2 className={className}>{title}</H2>;
 };
 
 SectionTitle.propTypes = {
@@ -18,7 +18,7 @@ SectionTitle.defaultProps = {
 
 export default SectionTitle;
 
-const H1 = styled.h1`
+const H2 = styled.h2`
   font-size: 3rem;
   text-align: center;
   color: ${props => props.theme.primaryTextColor};
