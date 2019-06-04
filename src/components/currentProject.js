@@ -59,8 +59,8 @@ const CurrentProject = () => {
           <ul>
             <li>
               <a
-                href="https://elm-slide.simjes.dev"
-                title="https://elm-slide.simjes.dev"
+                href="https://jolly-hamilton-e358f4.netlify.com/"
+                title="https://jolly-hamilton-e358f4.netlify.com/"
                 target="_blank"
                 rel="noopener noreferrer"
               >
