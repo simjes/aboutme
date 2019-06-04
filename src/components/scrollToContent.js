@@ -4,18 +4,16 @@ import React from 'react';
 import styled from 'styled-components';
 import { MD } from '../theme';
 
-const ScrollToContent = () => {
-  return (
-    <Root
-      aria-label='Scroll to content'
-      onClick={() =>
-        window.scrollTo({ top: window.innerHeight, behavior: 'smooth' })
-      }
-    >
-      <FontAwesomeIcon icon={faArrowDown} size='2x' />
-    </Root>
-  );
-};
+const ScrollToContent = () => (
+  <Root
+    aria-label="Scroll to content"
+    onClick={() =>
+      window.scrollTo({ top: window.innerHeight, behavior: 'smooth' })
+    }
+  >
+    <FontAwesomeIcon icon={faArrowDown} size="2x" />
+  </Root>
+);
 
 export default ScrollToContent;
 

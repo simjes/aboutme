@@ -1,22 +1,20 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
-import { CompanyLogo } from './companyLogos';
+import CompanyLogo from './companyLogo';
 
-const Company = ({ logoFile, name, position, period, active }) => {
-  return (
-    <Root>
-      <Content active={active} tabIndex='0'>
-        <LogoContainer>
-          <CompanyLogo src={logoFile} />
-        </LogoContainer>
-        <Name>{name}</Name>
-        <div>{position}</div>
-        <div>{period}</div>
-      </Content>
-    </Root>
-  );
-};
+const Company = ({ logoFile, name, position, period, active }) => (
+  <Root>
+    <Content active={active} tabIndex="0">
+      <LogoContainer>
+        <CompanyLogo src={logoFile} />
+      </LogoContainer>
+      <Name>{name}</Name>
+      <div>{position}</div>
+      <div>{period}</div>
+    </Content>
+  </Root>
+);
 
 Company.propTypes = {
   logoFile: PropTypes.string.isRequired,

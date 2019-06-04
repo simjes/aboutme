@@ -8,8 +8,23 @@ import { MD } from '../theme';
 import Information from './information';
 import ProfilePicture from './profilePicture';
 
+const ABOUT_ME_QUERY = graphql`
+  query {
+    prisma {
+      user(where: { email: "simjes91@me.com" }) {
+        name
+        email
+        location
+        github
+        linkedin
+        stackoverflow
+      }
+    }
+  }
+`;
+
 const AboutMe = () => {
-  const { prisma } = useStaticQuery(aboutMeQuery);
+  const { prisma } = useStaticQuery(ABOUT_ME_QUERY);
 
   return (
     <Root>
@@ -17,11 +32,11 @@ const AboutMe = () => {
         <ProfilePicture />
 
         <Details>
-          <Information label='Name' text={prisma.user.name} />
+          <Information label="Name" text={prisma.user.name} />
 
-          <Information label='Email' text={prisma.user.email} />
+          <Information label="Email" text={prisma.user.email} />
 
-          <Information label='Location' text={prisma.user.location} />
+          <Information label="Location" text={prisma.user.location} />
         </Details>
       </Profile>
 
@@ -29,26 +44,26 @@ const AboutMe = () => {
         <Link
           href={prisma.user.github}
           title={prisma.user.github}
-          target='_blank'
-          rel='noopener noreferrer'
+          target="_blank"
+          rel="noopener noreferrer"
         >
-          <Github className='icon' alt='Github logo' />
+          <Github className="icon" alt="Github logo" />
         </Link>
         <Link
           href={prisma.user.stackoverflow}
           title={prisma.user.stackoverflow}
-          target='_blank'
-          rel='noopener noreferrer'
+          target="_blank"
+          rel="noopener noreferrer"
         >
-          <Stackoverflow className='icon' alt='Stackoverflow logo' />
+          <Stackoverflow className="icon" alt="Stackoverflow logo" />
         </Link>
         <Link
           href={prisma.user.linkedin}
           title={prisma.user.linkedin}
-          target='_blank'
-          rel='noopener noreferrer'
+          target="_blank"
+          rel="noopener noreferrer"
         >
-          <Linkedin className='icon' alt='Linkedin logo' />
+          <Linkedin className="icon" alt="Linkedin logo" />
         </Link>
       </ReachMe>
     </Root>
@@ -110,20 +125,5 @@ const ReachMe = styled.div`
 
   @media (max-width: ${MD}) {
     width: 80%;
-  }
-`;
-
-const aboutMeQuery = graphql`
-  query {
-    prisma {
-      user(where: { email: "simjes91@me.com" }) {
-        name
-        email
-        location
-        github
-        linkedin
-        stackoverflow
-      }
-    }
   }
 `;

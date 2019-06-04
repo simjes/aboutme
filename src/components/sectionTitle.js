@@ -3,9 +3,9 @@ import React from 'react';
 import styled from 'styled-components';
 import { MD } from '../theme';
 
-const SectionTitle = ({ title, className }) => {
-  return <H2 className={className}>{title}</H2>;
-};
+const SectionTitle = ({ title, className }) => (
+  <H2 className={className}>{title}</H2>
+);
 
 SectionTitle.propTypes = {
   className: PropTypes.string,

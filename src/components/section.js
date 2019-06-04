@@ -4,17 +4,15 @@ import styled from 'styled-components';
 import { XS } from '../theme';
 import SectionTitle from './sectionTitle';
 
-const Section = ({ className, title, children, highlight }) => {
-  return (
-    <Root highlight={highlight} className={className}>
-      <Content>
-        <SectionTitle title={title} />
+const Section = ({ className, title, children, highlight }) => (
+  <Root highlight={highlight} className={className}>
+    <Content>
+      <SectionTitle title={title} />
 
-        <div>{children}</div>
-      </Content>
-    </Root>
-  );
-};
+      <div>{children}</div>
+    </Content>
+  </Root>
+);
 
 Section.propTypes = {
   className: PropTypes.string,

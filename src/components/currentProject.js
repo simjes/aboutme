@@ -4,8 +4,20 @@ import React from 'react';
 import styled from 'styled-components';
 import SectionTitle from './sectionTitle';
 
+const PICTURE_QUERY = graphql`
+  query {
+    affPicture: file(relativePath: { eq: "food.jpg" }) {
+      childImageSharp {
+        fluid(maxWidth: 4000) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+  }
+`;
+
 const CurrentProject = () => {
-  const image = useStaticQuery(affPictureQuery);
+  const image = useStaticQuery(PICTURE_QUERY);
 
   return (
     <Root>
@@ -114,17 +126,5 @@ const Content = styled.div`
 
   &.focus-visible {
     border-color: ${props => props.theme.secondaryColor};
-  }
-`;
-
-const affPictureQuery = graphql`
-  query {
-    affPicture: file(relativePath: { eq: "food.jpg" }) {
-      childImageSharp {
-        fluid(maxWidth: 4000) {
-          ...GatsbyImageSharpFluid
-        }
-      }
-    }
   }
 `;

@@ -2,16 +2,14 @@ import React from 'react';
 import styled from 'styled-components';
 import { MD } from '../theme';
 
-const Jumbotron = () => {
-  return (
-    <Root>
-      <Content>
-        <H1>Simon Jespersen</H1>
-        <Quote>Dark theme everything</Quote>
-      </Content>
-    </Root>
-  );
-};
+const Jumbotron = () => (
+  <Root>
+    <Content>
+      <H1>Simon Jespersen</H1>
+      <Quote>Dark theme everything</Quote>
+    </Content>
+  </Root>
+);
 
 export default Jumbotron;
 

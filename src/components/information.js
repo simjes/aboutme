@@ -2,14 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-const Information = ({ label, text }) => {
-  return (
-    <div>
-      <Label htmlFor={label}>{label}</Label>
-      <Detail id={label}>{text}</Detail>
-    </div>
-  );
-};
+const Information = ({ label, text }) => (
+  <div>
+    <Label htmlFor={label}>{label}</Label>
+    <Detail id={label}>{text}</Detail>
+  </div>
+);
 
 Information.propTypes = {
   label: PropTypes.string.isRequired,

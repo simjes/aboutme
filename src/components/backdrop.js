@@ -1,9 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const Backdrop = () => {
-  return <Root />;
-};
+const Backdrop = () => <Root />;
 
 export default Backdrop;
 

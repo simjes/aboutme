@@ -4,8 +4,24 @@ import styled from 'styled-components';
 import { XS } from '../theme';
 import Company from './company';
 
+const COMPANIES_QUERY = graphql`
+  query {
+    prisma {
+      companies(orderBy: startDate_DESC) {
+        id
+        name
+        logoFile
+        name
+        position
+        period
+        active
+      }
+    }
+  }
+`;
+
 const InfoGrid = () => {
-  const { prisma } = useStaticQuery(companiesQuery);
+  const { prisma } = useStaticQuery(COMPANIES_QUERY);
 
   return (
     <Grid>
@@ -34,22 +50,6 @@ const Grid = styled.div`
 
     > * {
       margin-top: 3rem;
-    }
-  }
-`;
-
-const companiesQuery = graphql`
-  query {
-    prisma {
-      companies(orderBy: startDate_DESC) {
-        id
-        name
-        logoFile
-        name
-        position
-        period
-        active
-      }
     }
   }
 `;
