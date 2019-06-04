@@ -2,7 +2,6 @@ import { graphql, useStaticQuery } from 'gatsby';
 import Img from 'gatsby-image';
 import React from 'react';
 import styled from 'styled-components';
-import { XS } from '../theme';
 import SectionTitle from './sectionTitle';
 
 const CurrentProject = () => {
@@ -11,20 +10,52 @@ const CurrentProject = () => {
   return (
     <Root>
       <ContentWrapper>
-        <Content tabIndex='0'>
-          <SectionTitle title='Current Project' />
+        <Content tabIndex="0">
+          <SectionTitle title="Current Project" />
 
           <p>I am currently working on an unnamed food application.</p>
 
           <p>
-            The frontend is built with Next.js and Apollo, while the backend is
-            written in Node with Prisma
-            <span role='img' aria-label='heart emoji'>
+            The frontend is built with Next.js and Apollo Client, while the
+            backend is written in Node with Apollo Server and Prisma
+            <span role="img" aria-label="heart emoji">
               ❤️
             </span>
           </p>
 
           <p>Authentication is done using Auth0.</p>
+        </Content>
+
+        <Content tabIndex="0">
+          <SectionTitle title="The Playground" />
+
+          <p>
+            The playground is a{' '}
+            <a
+              href="https://github.com/simjes/playground"
+              title="https://github.com/simjes/playground"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              repository
+            </a>{' '}
+            that will contain small and simple applications to test out new
+            technologies.
+          </p>
+
+          <p style={{ marginBottom: 0 }}>Current playground equipment:</p>
+          <ul>
+            <li>
+              <a
+                href="https://elm-slide.simjes.dev"
+                title="https://elm-slide.simjes.dev"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                elm-slide
+              </a>
+            </li>
+          </ul>
         </Content>
       </ContentWrapper>
 
@@ -36,15 +67,13 @@ const CurrentProject = () => {
           width: '100%',
           height: '100%',
         }}
-        alt='Current project background'
+        alt="Current project background"
         fluid={image.affPicture.childImageSharp.fluid}
       />
       <Overlay />
     </Root>
   );
 };
-
-CurrentProject.propTypes = {};
 
 export default CurrentProject;
 
@@ -56,16 +85,14 @@ const Root = styled.section`
 `;
 
 const ContentWrapper = styled.div`
-  display: flex;
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 450px));
   justify-content: center;
   position: relative;
   z-index: 2;
   width: 100%;
-  padding: 200px 50px;
-
-  @media (max-width: ${XS}) {
-    padding: 150px 10px;
-  }
+  padding: 200px 20px;
 `;
 
 const Overlay = styled.div`
@@ -78,17 +105,12 @@ const Overlay = styled.div`
 `;
 
 const Content = styled.div`
-  max-width: 500px;
   padding: 20px;
   /* Fallback background for Edge */
   background: ${props => props.theme.backgroundColor};
   background: ${props => props.theme.backgroundColor}ee;
   border-bottom: 4px solid ${props => props.theme.primaryColor};
   outline: none;
-
-  @media (max-width: ${XS}) {
-    max-width: 340px;
-  }
 
   &.focus-visible {
     border-color: ${props => props.theme.secondaryColor};
