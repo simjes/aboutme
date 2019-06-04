@@ -7,19 +7,18 @@ import InfoGrid from '../components/infoGrid';
 import Layout from '../components/layout';
 import Section from '../components/section';
 import SEO from '../components/seo';
-require('focus-visible');
 
 const IndexPage = () => (
   <Layout>
-    <SEO title='Home' keywords={[`aboutme`, `simjes`, `react`]} />
+    <SEO title="Home" keywords={[`aboutme`, `simjes`, `react`]} />
 
     <Content>
       <Main>
-        <Section title='About me️' highlight>
+        <Section title="About me️" highlight>
           <AboutMe />
         </Section>
 
-        <Section title='Work & Education'>
+        <Section title="Work & Education">
           <InfoGrid />
         </Section>
 

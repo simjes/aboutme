@@ -4,7 +4,6 @@ import { ThemeProvider } from 'styled-components';
 import { theme } from '../theme';
 import Backdrop from './backdrop';
 import Jumbotron from './jumbotron';
-import './layout.css';
 import ScrollToContent from './scrollToContent';
 
 const Layout = ({ children }) => (
