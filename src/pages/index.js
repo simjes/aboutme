@@ -1,27 +1,21 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { ThemeProvider } from 'styled-components';
 import AboutMe from '../components/aboutMe';
-import CurrentProject from '../components/currentProject';
 import Footer from '../components/footer';
 import InfoGrid from '../components/infoGrid';
-import Layout from '../components/layout';
+import LandingHeader from '../components/landingHeader/landingHeader';
+import Projects from '../components/projects';
 import Section from '../components/section';
 import SEO from '../components/seo';
-import Backdrop from '../components/backdrop';
-import Jumbotron from '../components/jumbotron';
-import ScrollToContent from '../components/scrollToContent';
+import { theme } from '../theme';
 
+// The index page is currently very custom compared
+// to the rest of the layout, so it does not use Layout component
 const IndexPage = () => (
-  <Layout>
+  <ThemeProvider theme={theme}>
     <>
       <SEO title="Home" keywords={[`aboutme`, `simjes`, `react`]} />
-
-      <header>
-        <Backdrop />
-        <Jumbotron />
-
-        <ScrollToContent />
-      </header>
+      <LandingHeader />
 
       <Content>
         <Main>
@@ -33,13 +27,13 @@ const IndexPage = () => (
             <InfoGrid />
           </Section>
 
-          <CurrentProject />
+          <Projects />
         </Main>
 
         <Footer />
       </Content>
     </>
-  </Layout>
+  </ThemeProvider>
 );
 
 export default IndexPage;

@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { MD } from '../theme';
+import { MD } from '../../theme';
 
 const Jumbotron = () => (
   <Root>

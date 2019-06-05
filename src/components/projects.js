@@ -1,4 +1,4 @@
-import { graphql, useStaticQuery } from 'gatsby';
+import { graphql, useStaticQuery, Link } from 'gatsby';
 import Img from 'gatsby-image';
 import React from 'react';
 import styled from 'styled-components';
@@ -16,7 +16,7 @@ const PICTURE_QUERY = graphql`
   }
 `;
 
-const CurrentProject = () => {
+const Projects = () => {
   const image = useStaticQuery(PICTURE_QUERY);
 
   return (
@@ -42,7 +42,7 @@ const CurrentProject = () => {
           <SectionTitle title="The Playground" />
 
           <p>
-            The playground is a{' '}
+            The <Link to="/playground/">playground</Link> is a{' '}
             <a
               href="https://github.com/simjes/playground"
               title="https://github.com/simjes/playground"
@@ -87,7 +87,7 @@ const CurrentProject = () => {
   );
 };
 
-export default CurrentProject;
+export default Projects;
 
 const Root = styled.section`
   display: flex;
