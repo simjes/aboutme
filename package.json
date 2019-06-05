@@ -41,7 +41,6 @@
     "start": "npm run develop",
     "serve": "gatsby serve",
     "test": "echo \"Write tests! -> https://gatsby.app/unit-testing\"",
-    "now-build": "npm run build",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix"
   },
