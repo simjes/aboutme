@@ -5,13 +5,14 @@ import CompanyLogo from './companyLogo';
 
 const Company = ({ logoFile, name, position, period, active }) => (
   <Root>
-    <Content active={active} tabIndex="0">
+    <Content>
       <LogoContainer>
         <CompanyLogo src={logoFile} />
       </LogoContainer>
       <Name>{name}</Name>
       <div>{position}</div>
       <div>{period}</div>
+      <Hr active={active} tabIndex="0" />
     </Content>
   </Root>
 );
@@ -38,13 +39,21 @@ const Content = styled.div`
   align-items: center;
   text-align: center;
   margin: 20px;
-  padding-bottom: 20px;
+`;
+
+const Hr = styled.hr`
+  margin-top: 18px;
+  margin-bottom: 0;
+  background: ${props =>
+    props.active
+      ? `${props.theme.primaryColor}`
+      : `${props.theme.secondaryColor}`};
+  height: 4px;
+  width: 150px;
   outline: none;
-  border-bottom: 4px solid
-    ${props => (props.active ? `${props.theme.primaryColor}` : 'transparent')};
 
   &.focus-visible {
-    border-color: ${props => props.theme.secondaryColor};
+    background: ${props => props.theme.tertiaryColor};
   }
 `;
 

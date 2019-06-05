@@ -56,6 +56,6 @@ const Quote = styled.q`
   outline: none;
 
   &.focus-visible {
-    outline: 1px dotted ${props => props.theme.secondaryColor};
+    outline: 1px dotted ${props => props.theme.tertiaryColor};
   }
 `;

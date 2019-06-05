@@ -121,10 +121,10 @@ const Content = styled.div`
   /* Fallback background for Edge */
   background: ${props => props.theme.backgroundColor};
   background: ${props => props.theme.backgroundColor}ee;
-  border-bottom: 4px solid ${props => props.theme.primaryColor};
+  border-bottom: 4px solid ${props => props.theme.secondaryColor};
   outline: none;
 
   &.focus-visible {
-    border-color: ${props => props.theme.secondaryColor};
+    border-color: ${props => props.theme.tertiaryColor};
   }
 `;
