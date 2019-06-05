@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 const Footer = () => (
   <Root>
-    <Quote tabIndex="0">Dark theme everything</Quote>
+    <q>Dark theme everything</q>
 
     <small>Icons by Icons8:</small>
 
@@ -36,16 +36,6 @@ const Root = styled.footer`
   align-items: center;
   justify-content: center;
   padding: 100px 50px;
-`;
-
-const Quote = styled.q`
-  font-family: 'Indie Flower', cursive;
-  font-style: italic;
-  outline: none;
-
-  &.focus-visible {
-    outline: 1px dotted ${props => props.theme.tertiaryColor};
-  }
 `;
 
 const AttributionLinks = styled.small`

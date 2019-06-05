@@ -7,26 +7,38 @@ import InfoGrid from '../components/infoGrid';
 import Layout from '../components/layout';
 import Section from '../components/section';
 import SEO from '../components/seo';
+import Backdrop from '../components/backdrop';
+import Jumbotron from '../components/jumbotron';
+import ScrollToContent from '../components/scrollToContent';
 
 const IndexPage = () => (
   <Layout>
-    <SEO title="Home" keywords={[`aboutme`, `simjes`, `react`]} />
+    <>
+      <SEO title="Home" keywords={[`aboutme`, `simjes`, `react`]} />
 
-    <Content>
-      <Main>
-        <Section title="About me️" highlight>
-          <AboutMe />
-        </Section>
+      <header>
+        <Backdrop />
+        <Jumbotron />
 
-        <Section title="Work & Education">
-          <InfoGrid />
-        </Section>
+        <ScrollToContent />
+      </header>
 
-        <CurrentProject />
-      </Main>
+      <Content>
+        <Main>
+          <Section title="About me️" highlight>
+            <AboutMe />
+          </Section>
 
-      <Footer />
-    </Content>
+          <Section title="Work & Education">
+            <InfoGrid />
+          </Section>
+
+          <CurrentProject />
+        </Main>
+
+        <Footer />
+      </Content>
+    </>
   </Layout>
 );
 

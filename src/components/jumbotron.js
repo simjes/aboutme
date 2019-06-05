@@ -45,11 +45,7 @@ const H1 = styled.h1`
 `;
 
 const Quote = styled.q`
-  padding: 10px;
   font-size: 1.5rem;
-  margin: 0;
-  font-family: 'Indie Flower', cursive;
-  font-style: italic;
 
   @media (max-width: ${MD}) {
     font-size: 1rem;

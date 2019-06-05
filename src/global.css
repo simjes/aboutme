@@ -5,6 +5,7 @@ html {
 }
 body {
   margin: 0;
+  background: #1b1b35;
 }
 article,
 aside,
@@ -619,4 +620,9 @@ pre tt:after {
 }
 button:focus {
   outline: 1px dotted #16da00;
+}
+
+q {
+  font-family: 'Indie Flower', cursive;
+  font-style: italic;
 }
