@@ -11,7 +11,7 @@ import ProfilePicture from './profilePicture';
 const ABOUT_ME_QUERY = graphql`
   query {
     prisma {
-      user(where: { email: "simjes91@me.com" }) {
+      user(where: { email: "me@simjes.dev" }) {
         name
         email
         location
