@@ -72,6 +72,7 @@ mark {
 }
 small {
   font-size: 0.5rem;
+  line-height: 1.6;
 }
 sub,
 sup {

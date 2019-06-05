@@ -123,6 +123,7 @@ const Content = styled.div`
   background: ${props => props.theme.backgroundColor}ee;
   border-bottom: 4px solid ${props => props.theme.secondaryColor};
   outline: none;
+  border-radius: 4px;
 
   &.focus-visible {
     border-color: ${props => props.theme.tertiaryColor};

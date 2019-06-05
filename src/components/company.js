@@ -51,6 +51,7 @@ const Hr = styled.hr`
   height: 4px;
   width: 150px;
   outline: none;
+  border-radius: 4px;
 
   &.focus-visible {
     background: ${props => props.theme.tertiaryColor};

@@ -5,38 +5,26 @@ const Footer = () => (
   <Root>
     <Quote tabIndex="0">Dark theme everything</Quote>
 
-    <small>
-      <a
-        href="https://icons8.com/icon/44019/linkedin"
-        title="https://icons8.com/icon/44019/linkedin"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        LinkedIn icon by Icons8
-      </a>
-    </small>
+    <small>Icons by Icons8:</small>
 
-    <small>
+    <AttributionLinks>
       <a
-        href="https://icons8.com/icon/52539/github"
-        title="https://icons8.com/icon/52539/github"
+        href="https://icons8.com/icon/8808/linkedin-filled"
+        title="https://icons8.com/icon/8808/linkedin-filled"
         target="_blank"
         rel="noopener noreferrer"
       >
-        GitHub icon by Icons8
+        LinkedIn
       </a>
-    </small>
-
-    <small>
       <a
-        href="https://icons8.com/icon/38517/stack-overflow-filled"
-        title="https://icons8.com/icon/38517/stack-overflow-filled"
+        href="https://icons8.com/icon/106567/github"
+        title="https://icons8.com/icon/106567/github"
         target="_blank"
         rel="noopener noreferrer"
       >
-        Stack Overflow Filled icon by Icons8
+        GitHub
       </a>
-    </small>
+    </AttributionLinks>
   </Root>
 );
 
@@ -57,5 +45,11 @@ const Quote = styled.q`
 
   &.focus-visible {
     outline: 1px dotted ${props => props.theme.tertiaryColor};
+  }
+`;
+
+const AttributionLinks = styled.small`
+  > a {
+    padding: 0 4px;
   }
 `;

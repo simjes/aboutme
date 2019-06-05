@@ -1,9 +1,8 @@
 import { graphql, useStaticQuery } from 'gatsby';
 import React from 'react';
 import styled from 'styled-components';
-import Github from '../images/github.svg';
-import Linkedin from '../images/linkedin.svg';
-import Stackoverflow from '../images/stackoverflow.svg';
+import Github from '../images/icons8-github-filled.svg';
+import Linkedin from '../images/icons8-linkedin-filled.svg';
 import { MD } from '../theme';
 import Information from './information';
 import ProfilePicture from './profilePicture';
@@ -37,35 +36,28 @@ const AboutMe = () => {
           <Information label="Email" text={prisma.user.email} />
 
           <Information label="Location" text={prisma.user.location} />
+
+          <ReachMe>
+            <a
+              href={prisma.user.github}
+              title={prisma.user.github}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Github className="icon" alt="Github logo" />
+            </a>
+
+            <a
+              href={prisma.user.linkedin}
+              title={prisma.user.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Linkedin className="icon" alt="Linkedin logo" />
+            </a>
+          </ReachMe>
         </Details>
       </Profile>
-
-      <ReachMe>
-        <Link
-          href={prisma.user.github}
-          title={prisma.user.github}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Github className="icon" alt="Github logo" />
-        </Link>
-        <Link
-          href={prisma.user.stackoverflow}
-          title={prisma.user.stackoverflow}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Stackoverflow className="icon" alt="Stackoverflow logo" />
-        </Link>
-        <Link
-          href={prisma.user.linkedin}
-          title={prisma.user.linkedin}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Linkedin className="icon" alt="Linkedin logo" />
-        </Link>
-      </ReachMe>
     </Root>
   );
 };
@@ -88,10 +80,6 @@ const Profile = styled.div`
   }
 `;
 
-const Link = styled.a`
-  height: 40px;
-`;
-
 const Details = styled.div`
   display: flex;
   flex-direction: column;
@@ -112,11 +100,14 @@ const Details = styled.div`
 
 const ReachMe = styled.div`
   display: flex;
-  /* Fallback for Edge */
-  justify-content: space-between;
-  justify-content: space-evenly;
-  width: 40%;
-  margin-top: 3rem;
+
+  a {
+    height: 40px;
+
+    &:not(:first-child) {
+      margin-left: 20px;
+    }
+  }
 
   .icon {
     height: 40px;
@@ -124,6 +115,10 @@ const ReachMe = styled.div`
   }
 
   @media (max-width: ${MD}) {
-    width: 80%;
+    justify-content: center;
+
+    a {
+      margin: 0;
+    }
   }
 `;

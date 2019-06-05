@@ -31,6 +31,7 @@ const Root = styled.button`
   color: ${props => props.theme.primaryTextColor};
   background: ${props => props.theme.backgroundColor};
   border: none;
+  border-radius: 4px 4px 0 0;
 
   svg {
     transition: all 0.2s ease-in-out;
