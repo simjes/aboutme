@@ -42,7 +42,8 @@ const Projects = () => {
           <SectionTitle title="The Playground" />
 
           <p>
-            The <Link to="/playground/">playground</Link> is a{' '}
+            {/* <Link to="/playground/">playground</Link> TODO: Add link after datamodel is ready */}
+            The playground is a{' '}
             <a
               href="https://github.com/simjes/playground"
               title="https://github.com/simjes/playground"

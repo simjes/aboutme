@@ -3,6 +3,7 @@ import React from 'react';
 import styled, { ThemeProvider } from 'styled-components';
 import { theme } from '../theme';
 import Footer from './footer';
+import Header from './header/header';
 import SEO from './seo';
 
 const Layout = ({ children, seoTitle }) => (
@@ -22,10 +23,6 @@ Layout.propTypes = {
 };
 
 export default Layout;
-
-const Header = styled.header`
-  background: hotpink;
-`;
 
 const Main = styled.main`
   flex: 1 0 auto;

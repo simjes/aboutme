@@ -638,3 +638,27 @@ q {
   font-family: 'Indie Flower', cursive;
   font-style: italic;
 }
+
+button {
+  display: inline-block;
+  border: none;
+  padding: 10px 30px;
+  margin: 0;
+  text-decoration: none;
+  cursor: pointer;
+  color: #fff;
+  outline: none; /* See outline on .focus-visible */
+}
+
+button:active {
+  transform: scale(0.99);
+}
+
+button.focus-visible {
+  outline: 3px solid #16da00;
+  outline-offset: -3px;
+}
+
+button:disabled {
+  opacity: 0.5;
+}
