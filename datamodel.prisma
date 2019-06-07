@@ -1,0 +1,31 @@
+type User {
+  id: ID! @id
+  name: String!
+  email: String! @unique
+  location: String!
+  github: String!
+  stackoverflow: String!
+  linkedin: String!
+  updatedAt: DateTime! @updatedAt
+  createdAt: DateTime! @createdAt
+}
+
+type Company {
+  id: ID! @id
+  logoFile: String!
+  name: String!
+  position: String!
+  period: String!
+  active: Boolean!
+  startDate: DateTime
+  updatedAt: DateTime! @updatedAt
+  createdAt: DateTime! @createdAt
+}
+
+type PlaygroundEquipment {
+  id: ID! @id
+  name: String!
+  repositoryLink: String!
+  demoLink: String!
+  icon: String!
+}

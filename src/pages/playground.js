@@ -1,35 +1,40 @@
 import React, { createRef, useRef, useState } from 'react';
 import { useSpring } from 'react-spring';
 import { Waypoint } from 'react-waypoint';
+import { graphql, useStaticQuery } from 'gatsby';
 import styled from 'styled-components';
 import MenuButton from '../components/common/menuButton';
 import Layout from '../components/layout';
 import { MD } from '../theme';
 
-const sections = [
-  {
-    id: 2314,
-    name: 'elm-slide',
-    repo: 'https://github.com/simjes/playground/tree/master/elm-slide',
-    demo: 'https://elm-slide.simjes.dev/',
-  },
-  {
-    id: 1634,
-    name: 'svelte',
-    repo: 'https://github.com/simjes/playground/tree/master/elm-slide',
-    demo: 'https://elm-slide.simjes.dev/',
-  },
-  {
-    id: 16342,
-    name: 'TEST',
-    repo: 'https://github.com/simjes/playground/tree/master/elm-slide',
-    demo: 'https://elm-slide.simjes.dev/',
-  },
-];
+const PLAYGROUND_EQUIPMENT_QUERY = graphql`
+  query {
+    prisma {
+      playgroundEquipments {
+        id
+        name
+        demoLink
+        repositoryLink
+      }
+    }
+  }
+`;
 
 const Playground = () => {
-  const sectionRefs = useRef([...Array(3)].map(() => createRef()));
-  const [activeView, setActiveView] = useState(sections[0].id);
+  const { prisma } = useStaticQuery(PLAYGROUND_EQUIPMENT_QUERY);
+  const equipment = [
+    ...prisma.playgroundEquipments,
+    {
+      id: 'viewMore',
+      name: 'Soon',
+      description: 'Vue-seesaw, Svelte-swing and more',
+    },
+  ];
+
+  const sectionRefs = useRef(
+    [...Array(equipment.length)].map(() => createRef()),
+  );
+  const [activeView, setActiveView] = useState(equipment[0].id);
   const [, setY] = useSpring(() => ({ y: 0 }));
 
   const scrollToSection = ref => {
@@ -53,7 +58,7 @@ const Playground = () => {
     <Layout seoTitle="Playground">
       <Root>
         <Menu>
-          {sections.map((section, i) => (
+          {equipment.map((section, i) => (
             <MenuButton
               key={`${section.id}-menu`}
               text={section.name}
@@ -63,31 +68,35 @@ const Playground = () => {
           ))}
         </Menu>
 
-        {sections.map((section, i) => (
+        {equipment.map((section, i) => (
           <Section key={`${section.id}-section`}>
             <Waypoint onEnter={() => handleOnScrollEnter(section.id)} />
 
             <h1 ref={ref => (sectionRefs.current[i] = ref)}>{section.name}</h1>
 
-            <Links>
-              <a
-                href={section.repo}
-                title={section.repo}
-                rel="noopener noreferrer"
-                target="_blank"
-              >
-                Source
-              </a>
+            {section.description && <div>{section.description}</div>}
 
-              <a
-                href={section.demo}
-                title={section.demo}
-                rel="noopener noreferrer"
-                target="_blank"
-              >
-                Demo
-              </a>
-            </Links>
+            {section.repositoryLink && section.demoLink && (
+              <Links>
+                <a
+                  href={section.repositoryLink}
+                  title={section.repositoryLink}
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  Source
+                </a>
+
+                <a
+                  href={section.demoLink}
+                  title={section.demoLink}
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  Demo
+                </a>
+              </Links>
+            )}
           </Section>
         ))}
       </Root>
