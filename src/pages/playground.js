@@ -4,6 +4,7 @@ import { Waypoint } from 'react-waypoint';
 import styled from 'styled-components';
 import MenuButton from '../components/common/menuButton';
 import Layout from '../components/layout';
+import { MD } from '../theme';
 
 const sections = [
   {
@@ -26,9 +27,9 @@ const sections = [
   },
 ];
 
-const Playground = props => {
+const Playground = () => {
   const sectionRefs = useRef([...Array(3)].map(() => createRef()));
-  const [activeView, setActiveView] = useState(2314);
+  const [activeView, setActiveView] = useState(sections[0].id);
   const [, setY] = useSpring(() => ({ y: 0 }));
 
   const scrollToSection = ref => {
@@ -130,4 +131,12 @@ const Menu = styled.div`
   flex-direction: column;
   justify-content: center;
   padding: 10px;
+
+  @media (max-width: ${MD}) {
+    bottom: 0;
+    right: 0;
+    top: unset;
+    flex-direction: row;
+    background: ${props => props.theme.foregroundColor};
+  }
 `;
