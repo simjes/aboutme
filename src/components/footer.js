@@ -40,6 +40,6 @@ const Root = styled.footer`
 
 const AttributionLinks = styled.small`
   > a {
-    padding: 0 4px;
+    margin: 0 4px;
   }
 `;
