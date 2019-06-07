@@ -28,4 +28,6 @@ type PlaygroundEquipment {
   repositoryLink: String!
   demoLink: String!
   icon: String!
+  updatedAt: DateTime! @updatedAt
+  createdAt: DateTime! @createdAt
 }
