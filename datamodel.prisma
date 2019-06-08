@@ -28,6 +28,7 @@ type PlaygroundEquipment {
   repositoryLink: String!
   demoLink: String!
   icon: String!
+  tags: [String!]! @scalarList(strategy: RELATION)
   updatedAt: DateTime! @updatedAt
   createdAt: DateTime! @createdAt
 }

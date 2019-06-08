@@ -7,7 +7,7 @@ const Header = () => (
     <nav>
       <Ol>
         <MenuLink to="/">Home</MenuLink>
-        <MenuLink to="/playground">Playground</MenuLink>
+        <MenuLink to="/playground/">Playground</MenuLink>
       </Ol>
     </nav>
   </Root>
