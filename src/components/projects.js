@@ -64,7 +64,18 @@ const Projects = () => {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                elm-slide
+                Elm-slide
+              </a>
+            </li>
+
+            <li>
+              <a
+                href="https://react-jungle-gym.simjes.dev/"
+                title="https://react-jungle-gym.simjes.dev/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                React-jungle-gym
               </a>
             </li>
           </ul>

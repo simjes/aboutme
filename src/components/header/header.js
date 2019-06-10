@@ -19,7 +19,7 @@ const Root = styled.header`
   display: flex;
   justify-content: flex-end;
   background: ${props => props.theme.foregroundColor};
-  padding: 20px;
+  padding: 10px 20px;
   z-index: 1;
 `;
 
