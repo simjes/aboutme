@@ -40,7 +40,6 @@ const Projects = () => {
 
         <Content tabIndex="0">
           <SectionTitle title="The Playground" />
-
           <p>
             The <Link to="/playground/">playground</Link> is a{' '}
             <a
@@ -54,31 +53,33 @@ const Projects = () => {
             that will contain small and simple applications to test out new
             technologies.
           </p>
-
           <p style={{ marginBottom: 0 }}>Current playground equipment:</p>
-          <ul>
-            <li>
-              <a
-                href="https://elm-slide.simjes.dev"
-                title="https://elm-slide.simjes.dev"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Elm-slide
-              </a>
-            </li>
-
-            <li>
-              <a
-                href="https://react-jungle-gym.simjes.dev/"
-                title="https://react-jungle-gym.simjes.dev/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                React-jungle-gym
-              </a>
-            </li>
-          </ul>
+          <a
+            href="https://elm-slide.simjes.dev"
+            title="https://elm-slide.simjes.dev"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Elm-slide
+          </a>
+          {', '}
+          <a
+            href="https://vue-seesaw.simjes.dev/"
+            title="https://vue-seesaw.simjes.dev/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Vue-seesaw
+          </a>
+          {', '}
+          <a
+            href="https://react-jungle-gym.simjes.dev/"
+            title="https://react-jungle-gym.simjes.dev/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            React-jungle-gym
+          </a>
         </Content>
       </ContentWrapper>
 

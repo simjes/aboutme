@@ -29,7 +29,7 @@ const Playground = () => {
     {
       id: 'viewMore',
       name: 'Soon',
-      description: 'Vue-seesaw, Svelte-swing and more',
+      description: 'Svelte-swing and more',
     },
   ];
 
