@@ -32,3 +32,8 @@ type PlaygroundEquipment {
   updatedAt: DateTime! @updatedAt
   createdAt: DateTime! @createdAt
 }
+
+type Tool {
+  id: ID! @id
+  name: String! @unique
+}

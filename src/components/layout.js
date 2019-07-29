@@ -10,7 +10,7 @@ const Layout = ({ children, seoTitle }) => (
   <ThemeProvider theme={theme}>
     <>
       <SEO title={seoTitle} keywords={[`aboutme`, `simjes`, `react`]} />
-      <Header>Header</Header>
+      <Header />
       <Main>{children}</Main>
       <Footer />
     </>

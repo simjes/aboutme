@@ -2,8 +2,9 @@ import React from 'react';
 import styled, { ThemeProvider } from 'styled-components';
 import AboutMe from '../components/aboutMe';
 import Footer from '../components/footer';
+import Header from '../components/header/header';
 import InfoGrid from '../components/infoGrid';
-import LandingHeader from '../components/landingHeader/landingHeader';
+import Landing from '../components/landing/landing';
 import Projects from '../components/projects';
 import Section from '../components/section';
 import SEO from '../components/seo';
@@ -15,7 +16,8 @@ const IndexPage = () => (
   <ThemeProvider theme={theme}>
     <>
       <SEO title="Home" keywords={[`aboutme`, `simjes`, `react`]} />
-      <LandingHeader />
+      <Header />
+      <Landing />
 
       <Content>
         <Main>

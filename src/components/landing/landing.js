@@ -3,13 +3,13 @@ import Backdrop from './backdrop';
 import Jumbotron from './jumbotron';
 import ScrollToContent from './scrollToContent';
 
-const LandingHeader = props => (
-  <header>
+const Landing = () => (
+  <>
     <Backdrop />
     <Jumbotron />
 
     <ScrollToContent />
-  </header>
+  </>
 );
 
-export default LandingHeader;
+export default Landing;

@@ -1,11 +1,11 @@
+import { graphql, useStaticQuery } from 'gatsby';
 import React, { createRef, useRef, useState } from 'react';
 import { useSpring } from 'react-spring';
 import { Waypoint } from 'react-waypoint';
-import { graphql, useStaticQuery } from 'gatsby';
 import styled from 'styled-components';
-import shortid from 'shortid';
 import MenuButton from '../components/common/menuButton';
 import Layout from '../components/layout';
+import Tags from '../components/tags';
 import { MD } from '../theme';
 
 const PLAYGROUND_EQUIPMENT_QUERY = graphql`
@@ -100,13 +100,9 @@ const Playground = () => {
               </Links>
             )}
 
-            <Tags>
-              {section.tags &&
-                section.tags.length > 0 &&
-                section.tags.map(tag => (
-                  <Tag key={shortid.generate()}>{tag}</Tag>
-                ))}
-            </Tags>
+            {section.tags && section.tags.length > 0 && (
+              <Tags tags={section.tags} />
+            )}
           </Section>
         ))}
       </Root>
@@ -158,23 +154,4 @@ const Menu = styled.div`
     flex-direction: row;
     background: ${props => props.theme.foregroundColor};
   }
-`;
-
-const Tags = styled.ul`
-  margin: 0;
-  margin-top: 20px;
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  max-width: 400px;
-`;
-
-const Tag = styled.li`
-  list-style: none;
-  font-size: 0.7rem;
-  margin: 10px;
-  padding: 0px 10px;
-  border-radius: 4px;
-  background: ${props => props.theme.foregroundColor};
-  border: 1px solid ${props => props.theme.primaryColor};
 `;
