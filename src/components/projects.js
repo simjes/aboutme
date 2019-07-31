@@ -80,6 +80,15 @@ const Projects = () => {
           >
             React-jungle-gym
           </a>
+          {', '}
+          <a
+            href="https://svelte-swing.simjes.dev/blog"
+            title="https://svelte-swing.simjes.dev/blog"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Svelte-swing
+          </a>
         </Content>
       </ContentWrapper>
 

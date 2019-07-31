@@ -24,14 +24,7 @@ const PLAYGROUND_EQUIPMENT_QUERY = graphql`
 
 const Playground = () => {
   const { prisma } = useStaticQuery(PLAYGROUND_EQUIPMENT_QUERY);
-  const equipment = [
-    ...prisma.playgroundEquipments,
-    {
-      id: 'viewMore',
-      name: 'Soon',
-      description: 'Svelte-swing and more',
-    },
-  ];
+  const equipment = [...prisma.playgroundEquipments];
 
   const sectionRefs = useRef(
     [...Array(equipment.length)].map(() => createRef()),
