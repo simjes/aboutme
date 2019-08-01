@@ -53,42 +53,6 @@ const Projects = () => {
             that will contain small and simple applications to test out new
             technologies.
           </p>
-          <p style={{ marginBottom: 0 }}>Current playground equipment:</p>
-          <a
-            href="https://elm-slide.simjes.dev"
-            title="https://elm-slide.simjes.dev"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Elm-slide
-          </a>
-          {', '}
-          <a
-            href="https://vue-seesaw.simjes.dev/"
-            title="https://vue-seesaw.simjes.dev/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Vue-seesaw
-          </a>
-          {', '}
-          <a
-            href="https://react-jungle-gym.simjes.dev/"
-            title="https://react-jungle-gym.simjes.dev/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React-jungle-gym
-          </a>
-          {', '}
-          <a
-            href="https://svelte-swing.simjes.dev/blog"
-            title="https://svelte-swing.simjes.dev/blog"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Svelte-swing
-          </a>
         </Content>
       </ContentWrapper>
 
