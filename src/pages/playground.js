@@ -138,6 +138,7 @@ const Menu = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  z-index: 1;
   padding: 10px;
 
   @media (max-width: ${MD}) {
