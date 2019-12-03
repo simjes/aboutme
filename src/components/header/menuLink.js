@@ -20,10 +20,12 @@ MenuLink.propTypes = {
 export default withTheme(MenuLink);
 
 const StyledLink = styled(Link)`
-  font-size: 0.6rem;
+  font-size: 0.7rem;
   text-decoration: none;
   color: ${props => props.theme.primaryTextColor};
   transition: color 250ms ease-in-out, transform 150ms ease;
+  font-family: 'lazer84';
+  letter-spacing: 2px;
 
   &:hover,
   &:focus {
@@ -34,5 +36,5 @@ const StyledLink = styled(Link)`
 const Li = styled.li`
   list-style: none;
   margin: 0;
-  margin-left: 10px;
+  margin-left: 15px;
 `;

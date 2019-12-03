@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 const Footer = () => (
   <Root>
-    <q>Dark theme everything</q>
+    <Quote>Dark theme everything</Quote>
 
     <small>Icons by Icons8:</small>
 
@@ -36,6 +36,11 @@ const Root = styled.footer`
   align-items: center;
   justify-content: center;
   padding: 100px 50px;
+`;
+
+const Quote = styled.q`
+  letter-spacing: 2px;
+  font-family: 'lazer84';
 `;
 
 const AttributionLinks = styled.small`
