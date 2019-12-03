@@ -23,22 +23,6 @@ const Projects = () => {
     <Root>
       <ContentWrapper>
         <Content tabIndex="0">
-          <SectionTitle title="Current Project" />
-
-          <p>I am currently working on an unnamed food application.</p>
-
-          <p>
-            The frontend is built with Next.js and Apollo Client, while the
-            backend is written in Node with Apollo Server and Prisma
-            <span role="img" aria-label="heart emoji">
-              ❤️
-            </span>
-          </p>
-
-          <p>Authentication is done using Auth0.</p>
-        </Content>
-
-        <Content tabIndex="0">
           <SectionTitle title="The Playground" />
           <p>
             The <Link to="/playground/">playground</Link> is a{' '}
@@ -50,8 +34,8 @@ const Projects = () => {
             >
               repository
             </a>{' '}
-            that will contain small and simple applications to test out new
-            technologies.
+            that will contains small and simple applications to test out new
+            technologies
           </p>
         </Content>
       </ContentWrapper>
