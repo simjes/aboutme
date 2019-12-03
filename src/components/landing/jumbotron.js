@@ -37,16 +37,30 @@ const H1 = styled.h1`
   padding: 10px;
   font-size: 4rem;
   margin: 0;
+  font-family: 'lazer84';
+  color: cyan;
+  text-shadow: -10px 10px 0px #e100ff;
 
   @media (max-width: ${MD}) {
     font-size: 2rem;
+    text-shadow: -5px 5px 0px #e100ff;
+  }
+
+  &::selection {
+    background: hotpink;
   }
 `;
 
 const Quote = styled.q`
+  color: #f5af19;
+  font-family: 'lazer84';
   font-size: 1.5rem;
 
   @media (max-width: ${MD}) {
     font-size: 1rem;
+  }
+
+  &::selection {
+    background: white;
   }
 `;
