@@ -19,13 +19,13 @@ I had some requirements that I wanted to achieve if we were going to convert to 
 
 ## Overview
 
-1. [Remove Karma](#1.-remove-karma)
-2. [Add jest-preset-angular](#2.-add-and-configure-jest-preset-angular)
-3. [Run test converter](#3.-run-test-converter)
-4. [Add scripts](#4.-add-scripts)
-5. [vscode-jest setup](#5.-vscode-jest-setup)
+1. [Remove Karma](#remove-karma)
+2. [Add jest-preset-angular](#add-and-configure-jest-preset-angular)
+3. [Run test converter](#run-test-converter)
+4. [Add scripts](#add-scripts)
+5. [vscode-jest setup](#vscode-jest-setup)
 
-## 1. Remove Karma
+## <a name="remove-karma"></a> 1. Remove Karma
 
 Removing Karma is pretty simple, just remove dependencies and delete the setup files.
 
@@ -36,7 +36,7 @@ rm ./src/karma.conf.js ./src/test.ts
 
 You will also have to remove `test.ts` from `files` in `./src/tsconfig.spec.json`.
 
-## 2. Add and configure jest-preset-angular
+## <a name="add-and-configure-jest-preset-angular"></a> 2. Add and Configure jest-preset-angular
 
 To get going we have to install some dependencies
 
@@ -138,25 +138,26 @@ Ok, so there is a lot going on here, lets go through it:
 
 There is of course a lot of other things you can configure, more on that in the offical [Jest documentation](https://jestjs.io/docs/en/configuration).
 
-### Configure typings
+### Configure Typings
 
 We also have to setup the correct types in our TypeScript configurations. Add `jest` in `compilerOptions.types` array in both `./tsconfig.json`(Used by our IDE) and `./src/tsconfig.spec.json`(Used by `Jest`).
 
 ```json
+// tsconfig.json and src/tsconfig.spec.json
+
 {
   //...
   "compilerOptions": {
-    // ...
+    //...
     "types": [
       //...
       "jest"
     ]
   }
-  // ...
 }
 ```
 
-## 3. Run test converter
+## <a name="run-test-converter"></a> 3. Run Test Converter
 
 So we are ready to go, but our tests are still using the `jasmine` API. Luckly `jest-codemods` will help us automagically convert most of our tests. The following will steps us through some convertion options:
 
@@ -167,7 +168,7 @@ npx jest-codemods
 After `jest-codemods` is done, you can run `npx jest` in your project to see if the tests run as expected.
 There are some gotchas that you should know about when switching to `Jest`, check out [Ali Kamalizade's](https://itnext.io/how-to-use-jest-in-angular-aka-make-unit-testing-great-again-e4be2d2e92d1) post for more on that.
 
-## 4. Add scripts
+## <a name="add-scripts"></a> 4. Add Scripts
 
 Having replaced `Karma`, we should update our scripts in `package.json`.
 
@@ -183,7 +184,7 @@ Having replaced `Karma`, we should update our scripts in `package.json`.
 }
 ```
 
-## 5. vscode-jest setup
+## 5. <a name="vscode-jest-setup"></a> vscode-jest Setup
 
 Now that our tests are running, we should make use of the excelent vscode plugin for showing test status as we code. Install `vscode-jest` and add the following to your `settings.json`, afterwards you have to restart the `vscode-jest` test runner:
 
