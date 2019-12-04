@@ -20,6 +20,7 @@ export default SectionTitle;
 
 const H2 = styled.h2`
   font-size: 3rem;
+  font-family: 'lazer84';
   text-align: center;
   color: ${props => props.theme.primaryTextColor};
 
