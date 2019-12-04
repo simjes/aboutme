@@ -30,7 +30,7 @@ export default function Template({
     <ThemeProvider theme={theme}>
       <Root>
         <Post>
-          <HomeLink>Home</HomeLink> {/* TODO: icon and animation */}
+          <HomeLink to="/">Home</HomeLink> {/* TODO: icon and animation */}
           <h1>{frontmatter.title}</h1>
           <MetaData>
             <Icons>
