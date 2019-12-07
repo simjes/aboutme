@@ -1,9 +1,9 @@
-import React from 'react';
-import { graphql } from 'gatsby';
-import styled, { ThemeProvider } from 'styled-components';
-import TechIcon from '../components/techIcon';
-import { theme } from '../theme';
-import { Link } from 'gatsby';
+import React from "react";
+import { graphql } from "gatsby";
+import styled, { ThemeProvider } from "styled-components";
+import TechIcon from "../components/techIcon";
+import { theme } from "../theme";
+import { Link } from "gatsby";
 
 export const pageQuery = graphql`
   query($path: String!) {
@@ -20,7 +20,7 @@ export const pageQuery = graphql`
 `;
 
 export default function Template({
-  data, // this prop will be injected by the GraphQL query
+  data // this prop will be injected by the GraphQL query
 }) {
   const { markdownRemark } = data;
   const { frontmatter, html } = markdownRemark;
@@ -60,6 +60,21 @@ const Post = styled.article`
 
 const Content = styled.div`
   margin-top: 5em;
+
+  h2 {
+    margin-bottom: 0.5rem;
+
+    &:not(:first-of-type) {
+      margin-top: 2rem;
+    }
+  }
+
+  blockquote {
+    text-align: center;
+    border: 2px solid cyan;
+    border-radius: 12px;
+    padding: 30px;
+  }
 `;
 
 const MetaData = styled.div`
@@ -83,5 +98,5 @@ const Icon = styled(TechIcon)`
 `;
 
 const HomeLink = styled(Link)`
-  font-family: 'lazer84';
+  font-family: "lazer84";
 `;
