@@ -111,13 +111,13 @@ module.exports = {
     },
   },
   testPathIgnorePatterns: [
-    '<rootDir>/environments/',
+    '<rootDir>/environments/',TODO: remove
     '<rootDir>/node_modules/',
     '<rootDir>/coverage/',
     '<rootDir>/dist/',
   ],
   coveragePathIgnorePatterns: [
-    '<rootDir>/environments/',
+    '<rootDir>/environments/',TODO: remove
     '<rootDir>/node_modules/',
     '<rootDir>/coverage/',
     '<rootDir>/dist/',
@@ -133,7 +133,7 @@ Ok, so there is a lot going on here, lets go through it:
 - `preset`: The base of your configuration.
 - `setupFilesAfterEnv`: A list of paths to modules that run some code to configure or set up the testing framework before each test.
 - `globals`: A set of global variables that need to be available in all test environments. In this case we overwrite the standard `ts-jest` configuration, as in my project `tsconfig.spect.json` was not placed in the root folder. If yours is, then you can exclude the `globals` object. The default configuration can be seen [here](https://github.com/thymikee/jest-preset-angular/blob/master/jest-preset.js).
-- `testPathIgnorePatterns` and `coveragePathIgnorePatterns`: Regex patterns of paths we want to skip testing and test coverage.
+- `testPathIgnorePatterns` and `coveragePathIgnorePatterns`: Regex patterns of paths we want to skip testing and test coverage. TODO: remove
 - `moduleNameMapper`: This is only require if you have defined [alias paths](https://dev.to/larswaechter/path-aliases-with-typescript-in-nodejs-4353) for module resolution in your `tsconfig.json` file. TODOCHECK: esModuleInterop
 
 There is of course a lot of other things you can configure, more on that in the offical [Jest documentation](https://jestjs.io/docs/en/configuration).
@@ -197,9 +197,15 @@ Now that our tests are running, we should make use of the excelent vscode plugin
 
 ## PS stuff
 
-angular builder jest
---esModuleInterop ? sjekk om dette bare gjelder med custom module resolution
+angular builder jest - hvorfor ikke denne - vscode-jest
+
 running js files in test - hva kommer denne erroren av?
+
+- nye prosjekter har noen av filene i root istedet for src - ta utangspunkt i nytt generert prosjekt, med disvlaimer om at i gamle prosjekt kan filene ligge i src
+- fikk warning på esModuleInterop i nytt prosjekt
+- fjerne test fra angular.json
+
+- egen blog post for å gå til cypress istedet for protractor?
 
 ##### Resources
 
