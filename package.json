@@ -8,6 +8,7 @@
     "@fortawesome/fontawesome-svg-core": "^1.2.25",
     "@fortawesome/free-solid-svg-icons": "^5.11.2",
     "@fortawesome/react-fontawesome": "^0.1.7",
+    "@prisma/client": "2.0.0-preview020.3",
     "babel-plugin-styled-components": "^1.10.6",
     "dotenv": "^8.2.0",
     "focus-visible": "^5.0.2",
@@ -48,9 +49,9 @@
     "lint:fix": "eslint . --fix",
     "prisma": "prisma2",
     "prisma:studio": "npm run prisma studio",
-    "prisma:migrate": "npm run prisma migrate save --experimental",
-    "prisma:up": "npm run prisma migrate up --experimental",
-    "prisma:down": "npm run prisma migrate down --experimental"
+    "prisma:migrate": "npm run prisma migrate save -- --experimental",
+    "prisma:up": "npm run prisma migrate up -- --experimental",
+    "prisma:down": "npm run prisma migrate down -- --experimental"
   },
   "repository": {
     "type": "git",
