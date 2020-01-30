@@ -23,36 +23,37 @@ const PLAYGROUND_EQUIPMENT_QUERY = graphql`
 `;
 
 const Playground = () => {
-  const { prisma } = useStaticQuery(PLAYGROUND_EQUIPMENT_QUERY);
-  const equipment = [...prisma.playgroundEquipments];
+  // const { prisma } = useStaticQuery(PLAYGROUND_EQUIPMENT_QUERY);
+  // const equipment = [...prisma.playgroundEquipments];
 
-  const sectionRefs = useRef(
-    [...Array(equipment.length)].map(() => createRef()),
-  );
-  const [activeView, setActiveView] = useState(equipment[0].id);
-  const [, setY] = useSpring(() => ({ y: 0 }));
+  // const sectionRefs = useRef(
+  //   [...Array(equipment.length)].map(() => createRef()),
+  // );
+  // const [activeView, setActiveView] = useState(equipment[0].id);
+  // const [, setY] = useSpring(() => ({ y: 0 }));
 
-  const scrollToSection = ref => {
-    if (ref) {
-      const scrollPosition = ref.offsetTop - window.innerHeight / 2.5;
+  // const scrollToSection = ref => {
+  //   if (ref) {
+  //     const scrollPosition = ref.offsetTop - window.innerHeight / 2.5;
 
-      setY({
-        y: scrollPosition,
-        reset: true,
-        from: { y: window.scrollY },
-        onFrame: p => window.scroll(0, p.y),
-      });
-    }
-  };
+  //     setY({
+  //       y: scrollPosition,
+  //       reset: true,
+  //       from: { y: window.scrollY },
+  //       onFrame: p => window.scroll(0, p.y),
+  //     });
+  //   }
+  // };
 
-  const handleOnScrollEnter = sectionId => {
-    setActiveView(sectionId);
-  };
+  // const handleOnScrollEnter = sectionId => {
+  //   setActiveView(sectionId);
+  // };
 
   return (
     <Layout seoTitle="Playground">
       <Root>
-        <Menu>
+        TODO: add out of order playground logo
+        {/* <Menu>
           {equipment.map((section, i) => (
             <MenuButton
               key={`${section.id}-menu`}
@@ -97,7 +98,7 @@ const Playground = () => {
               <Tags tags={section.tags} />
             )}
           </Section>
-        ))}
+        ))} */}
       </Root>
     </Layout>
   );

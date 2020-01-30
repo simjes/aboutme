@@ -1,0 +1,29 @@
+type User {
+  name: String!
+  email: String! @unique
+  location: String!
+  links: [Link!] @relation
+  companies: [Company!] @relation
+  tools: [Tool!] @relation
+}
+
+type Link {
+  name: String!
+  url: String!
+  user: User!
+}
+
+type Company {
+  logoFile: String!
+  name: String!
+  position: String!
+  period: String!
+  active: Boolean!
+  startDate: Time!
+  user: User!
+}
+
+type Tool {
+  name: String! @unique
+  users: [User!]
+}
