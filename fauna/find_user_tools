@@ -1,0 +1,63 @@
+Filter(
+  Map(
+    Paginate(Match(Index("allTools"))),
+    Lambda(
+      "tool", 
+      {
+        name: Select(["data", "name"], Get(Var("tool"))),
+        users:  Map(
+                  Select(["data", "users"], Get(Var("tool"))),
+                  Lambda("user", Select(["data"], Get(Var("user"))))
+                )
+      }
+    )
+  ),
+  Lambda(
+    "tool",
+    IsNonEmpty(
+      Filter(
+        Select(["users"], Var("tool")),
+        Lambda(
+          "user",
+          Equals("me@simjes.dev", Select(["email"], Var("user")))
+        )
+      )
+    )
+  )
+)
+
+
+// Shell test
+Map(
+  ["me@simjes.dev"],
+  Lambda(
+    "email",
+    Filter(
+      Map(
+        Paginate(Match(Index("allTools"))),
+        Lambda(
+          "tool", 
+          {
+            name: Select(["data", "name"], Get(Var("tool"))),
+            users:  Map(
+                      Select(["data", "users"], Get(Var("tool"))),
+                      Lambda("user", Select(["data"], Get(Var("user"))))
+                    )
+          }
+        )
+      ),
+      Lambda(
+        "tool",
+        IsNonEmpty(
+          Filter(
+            Select(["users"], Var("tool")),
+            Lambda(
+              "user",
+              Equals(Var("email"), Select(["email"], Var("user")))
+            )
+          )
+        )
+      )
+    )
+  )
+)

@@ -27,3 +27,10 @@ type Tool {
   name: String! @unique
   users: [User!]
 }
+
+type Query {
+  allTools: [Tool!]
+  findUserTools(email: String!): [Tool!] @resolver(name: "find_user_tools")
+  # findUserCompanies(email: String!): [Company!]
+  # findUserLinks(email: String!): [Link!]
+}
