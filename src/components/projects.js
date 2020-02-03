@@ -22,7 +22,7 @@ const Projects = () => {
   return (
     <Root>
       <ContentWrapper>
-        <Content tabIndex="0">
+        {/* <Content tabIndex="0">
           <SectionTitle title="The Playground" />
           <p>
             The <Link to="/playground/">playground</Link> is a{' '}
@@ -37,7 +37,7 @@ const Projects = () => {
             that will contains small and simple applications to test out new
             technologies
           </p>
-        </Content>
+        </Content> */}
       </ContentWrapper>
 
       <Img

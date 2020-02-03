@@ -1,0 +1,1 @@
+Query(Lambda("email", Get(Match(Index("unique_User_email"), Var("email")))))

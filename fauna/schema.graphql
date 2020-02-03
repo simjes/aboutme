@@ -1,0 +1,27 @@
+type User {
+  name: String!
+  email: String! @unique
+  location: String!
+  github: String!
+  linkedin: String!
+}
+
+type Company {
+  logoFile: String!
+  name: String!
+  position: String!
+  period: String!
+  active: Boolean!
+  startDate: Time!
+}
+
+type Tool {
+  name: String! @unique
+}
+
+type Query {
+  allTools: [Tool!]
+  allCompanies: [Company!]
+  allUsers: [User!]
+  userByEmail(email: String!): User @resolver(name: "find_user_by_email")
+}

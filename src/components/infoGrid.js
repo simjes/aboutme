@@ -1,33 +1,37 @@
-import { graphql, useStaticQuery } from 'gatsby';
-import React from 'react';
-import styled from 'styled-components';
-import { XS } from '../theme';
-import Company from './company';
+import { graphql, useStaticQuery } from "gatsby";
+import React from "react";
+import styled from "styled-components";
+import { XS } from "../theme";
+import Company from "./company";
 
 const COMPANIES_QUERY = graphql`
   query {
-    prisma {
-      companies(orderBy: startDate_DESC) {
-        id
-        name
-        logoFile
-        name
-        position
-        period
-        active
+    fauna {
+      allCompanies {
+        data {
+          _id
+          active
+          logoFile
+          name
+          period
+          position
+          startDate
+        }
       }
     }
   }
 `;
 
 const InfoGrid = () => {
-  const { prisma } = useStaticQuery(COMPANIES_QUERY);
+  const { fauna } = useStaticQuery(COMPANIES_QUERY);
 
   return (
     <Grid>
-      {prisma.companies.map(company => (
-        <Company key={company.id} {...company} />
-      ))}
+      {fauna.allCompanies.data
+        .sort((a, b) => b.startDate.localeCompare(a.startDate))
+        .map(company => (
+          <Company key={company.id} {...company} />
+        ))}
     </Grid>
   );
 };

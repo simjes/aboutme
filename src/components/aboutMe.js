@@ -1,29 +1,28 @@
-import { graphql, useStaticQuery } from 'gatsby';
-import React from 'react';
-import styled from 'styled-components';
-import Github from '../images/icons8-github-filled.svg';
-import Linkedin from '../images/icons8-linkedin-filled.svg';
-import { MD } from '../theme';
-import Information from './information';
-import ProfilePicture from './profilePicture';
+import { graphql, useStaticQuery } from "gatsby";
+import React from "react";
+import styled from "styled-components";
+import Github from "../images/icons8-github-filled.svg";
+import Linkedin from "../images/icons8-linkedin-filled.svg";
+import { MD } from "../theme";
+import Information from "./information";
+import ProfilePicture from "./profilePicture";
 
 const ABOUT_ME_QUERY = graphql`
   query {
-    prisma {
-      user(where: { email: "me@simjes.dev" }) {
+    fauna {
+      userByEmail(email: "me@simjes.dev") {
         name
-        email
         location
-        github
         linkedin
-        stackoverflow
+        github
+        email
       }
     }
   }
 `;
 
 const AboutMe = () => {
-  const { prisma } = useStaticQuery(ABOUT_ME_QUERY);
+  const { fauna } = useStaticQuery(ABOUT_ME_QUERY);
 
   return (
     <Root>
@@ -31,16 +30,16 @@ const AboutMe = () => {
         <ProfilePicture />
 
         <Details>
-          <Information label="Name" text={prisma.user.name} />
+          <Information label="Name" text={fauna.userByEmail.name} />
 
-          <Information label="Email" text={prisma.user.email} />
+          <Information label="Email" text={fauna.userByEmail.email} />
 
-          <Information label="Location" text={prisma.user.location} />
+          <Information label="Location" text={fauna.userByEmail.location} />
 
           <ReachMe>
             <a
-              href={prisma.user.github}
-              title={prisma.user.github}
+              href={fauna.userByEmail.github}
+              title={fauna.userByEmail.github}
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -48,8 +47,8 @@ const AboutMe = () => {
             </a>
 
             <a
-              href={prisma.user.linkedin}
-              title={prisma.user.linkedin}
+              href={fauna.userByEmail.linkedin}
+              title={fauna.userByEmail.linkedin}
               target="_blank"
               rel="noopener noreferrer"
             >
