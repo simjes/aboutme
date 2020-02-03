@@ -8,6 +8,11 @@ import { theme } from '../theme';
 export const pageQuery = graphql`
   query($id: ID!) {
     fauna {
+      findEventByID(id: $id) {
+        name
+        startDate
+        endDate
+      }
       postsByEventId(id: $id) {
         imageUrl
         name
@@ -20,20 +25,20 @@ export default function Template({
   data, // this prop will be injected by the GraphQL query
 }) {
   const { fauna } = data;
+  const event = fauna.findEventByID;
   const posts = fauna.postsByEventId;
 
   // TODO - SEO - react helm
   return (
     <ThemeProvider theme={theme}>
       <Root>
-        <Post>
-          {posts.map(post => (
-            <article>
-              <h2>{post.name}</h2>
-              <img src={post.imageUrl} />
-            </article>
-          ))}
-        </Post>
+        <h1>{event.name}</h1>
+        {posts.map(post => (
+          <Post>
+            <h2>{post.name}</h2>
+            <img src={post.imageUrl} />
+          </Post>
+        ))}
       </Root>
     </ThemeProvider>
   );
@@ -41,8 +46,9 @@ export default function Template({
 
 const Root = styled.section`
   display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
-  width: 100%;
   margin-top: 10em;
 `;
 

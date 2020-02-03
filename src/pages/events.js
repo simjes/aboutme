@@ -33,16 +33,23 @@ const Events = () => {
   return (
     <Layout seoTitle="Toolbox">
       <Root>
+        <h1>Events</h1>
+        <Ingress>
+          As a fun little experiment I created a mobile app which I will use
+          when I travel. The application will remind me every day at a random
+          time to take a picture during an event, and it will automatically
+          upload the picture and trigger a rebuild of this site.
+        </Ingress>
         {// TODO: placeholder for events without posts
-        events.map(event => (
-          <Link
-            to={`${event.name.toLowerCase()}-${new Date(
-              event.startDate,
-            ).getFullYear()}`}
-          >
-            {event.name}
-          </Link>
-        ))}
+        events.map(event => {
+          const year = new Date(event.startDate).getFullYear();
+
+          return (
+            <Link to={`/${event.name.toLowerCase()}-${year}`}>
+              {event.name} - {year}
+            </Link>
+          );
+        })}
       </Root>
     </Layout>
   );
@@ -56,4 +63,9 @@ const Root = styled.div`
   justify-content: center;
   align-items: center;
   height: 100%;
+`;
+
+const Ingress = styled.p`
+  font-size: 0.8rem;
+  max-width: 500px;
 `;
