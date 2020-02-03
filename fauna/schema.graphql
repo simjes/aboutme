@@ -19,9 +19,26 @@ type Tool {
   name: String! @unique
 }
 
+type Event {
+  name: String!
+  startDate: Time!
+  endDate: Time!
+  posts: [Post] @relation
+}
+
+type Post {
+  name: String!
+  imageUrl: String!
+  published: Time!
+  event: Event!
+}
+
 type Query {
   allTools: [Tool!]
   allCompanies: [Company!]
   allUsers: [User!]
+  allEvents: [Event]
+  allPosts: [Post]
+  postsByEventId(id: ID!): [Post] @resolver(name: "find_post_by_event_id")
   userByEmail(email: String!): User @resolver(name: "find_user_by_email")
 }
