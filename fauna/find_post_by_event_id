@@ -1,6 +1,6 @@
 Query(
   Lambda(
-    "eventId", 
+    ["id"], 
     Select(
       ["data"],
       Map(
@@ -8,7 +8,7 @@ Query(
           Paginate(Match(Index("allPosts"))),
           Lambda(
             "post",
-            Equals("256379156296630802", Select(["data", "event", "id"], Get(Var("post"))))
+            Equals(Var("id"), Select(["data", "event", "id"], Get(Var("post"))))
           )
         ),
         Lambda(
@@ -19,3 +19,4 @@ Query(
     )
   )
 )
+

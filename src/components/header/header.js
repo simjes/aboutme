@@ -8,6 +8,7 @@ const Header = () => (
       <Ol>
         <MenuLink to="/">Home</MenuLink>
         <MenuLink to="/toolbox/">Toolbox</MenuLink>
+        <MenuLink to="/events/">Events</MenuLink>
       </Ol>
     </nav>
   </Root>
