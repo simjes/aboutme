@@ -1,5 +1,5 @@
 import React from 'react';
-import { string, node, object } from 'prop-types';
+import { string, node, shape } from 'prop-types';
 import styled, { withTheme } from 'styled-components';
 import { Link } from 'gatsby';
 
@@ -14,7 +14,9 @@ const MenuLink = ({ children, to, theme }) => (
 MenuLink.propTypes = {
   children: node.isRequired,
   to: string.isRequired,
-  theme: object.isRequired,
+  theme: shape({
+    primaryColor: string,
+  }).isRequired,
 };
 
 export default withTheme(MenuLink);

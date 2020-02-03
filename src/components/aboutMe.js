@@ -1,11 +1,11 @@
-import { graphql, useStaticQuery } from "gatsby";
-import React from "react";
-import styled from "styled-components";
-import Github from "../images/icons8-github-filled.svg";
-import Linkedin from "../images/icons8-linkedin-filled.svg";
-import { MD } from "../theme";
-import Information from "./information";
-import ProfilePicture from "./profilePicture";
+import { graphql, useStaticQuery } from 'gatsby';
+import React from 'react';
+import styled from 'styled-components';
+import Github from '../images/icons8-github-filled.svg';
+import Linkedin from '../images/icons8-linkedin-filled.svg';
+import { MD } from '../theme';
+import Information from './information';
+import ProfilePicture from './profilePicture';
 
 const ABOUT_ME_QUERY = graphql`
   query {

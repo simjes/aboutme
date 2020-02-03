@@ -23,6 +23,7 @@ Section.propTypes = {
 
 Section.defaultProps = {
   className: '',
+  highlight: false,
 };
 
 export default Section;

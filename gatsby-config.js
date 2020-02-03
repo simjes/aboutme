@@ -1,29 +1,29 @@
-require("dotenv").config({
-  path: `.env`
+require('dotenv').config({
+  path: `.env`,
 });
 
 module.exports = {
   siteMetadata: {
     title: `Simjes`,
     description: `About me page for simjes`,
-    author: `@simjes`
+    author: `@simjes`,
   },
   plugins: [
     {
-      resolve: "gatsby-plugin-react-svg",
+      resolve: 'gatsby-plugin-react-svg',
       options: {
         rule: {
-          include: /images/
-        }
-      }
+          include: /images/,
+        },
+      },
     },
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
-        path: `${__dirname}/src/images`
-      }
+        path: `${__dirname}/src/images`,
+      },
     },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
@@ -36,28 +36,28 @@ module.exports = {
         background_color: `#663399`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `src/images/logo.png`
-      }
+        icon: `src/images/logo.png`,
+      },
     },
     {
-      resolve: "gatsby-source-graphql",
+      resolve: 'gatsby-source-graphql',
       options: {
-        typeName: "Fauna",
-        fieldName: "fauna",
+        typeName: 'Fauna',
+        fieldName: 'fauna',
         url: process.env.FAUNA_URL,
         headers: {
-          Authorization: `Bearer ${process.env.FAUNA_KEY}`
+          Authorization: `Bearer ${process.env.FAUNA_KEY}`,
         },
-        refetchInterval: 60
-      }
+        refetchInterval: 60,
+      },
     },
 
     `gatsby-plugin-styled-components`,
     {
       resolve: `gatsby-plugin-typography`,
       options: {
-        pathToConfigModule: `src/utils/typography`
-      }
-    }
-  ]
+        pathToConfigModule: `src/utils/typography`,
+      },
+    },
+  ],
 };

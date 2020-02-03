@@ -1,8 +1,8 @@
-import { graphql, useStaticQuery } from "gatsby";
-import React from "react";
-import styled from "styled-components";
-import { XS } from "../theme";
-import Company from "./company";
+import { graphql, useStaticQuery } from 'gatsby';
+import React from 'react';
+import styled from 'styled-components';
+import { XS } from '../theme';
+import Company from './company';
 
 const COMPANIES_QUERY = graphql`
   query {

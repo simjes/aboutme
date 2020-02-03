@@ -1,8 +1,7 @@
-import React from "react";
-import PlaygroundImage from '../images/playground.svg'
-import styled from "styled-components";
-import Layout from "../components/layout";
-import { MD } from "../theme";
+import React from 'react';
+import styled from 'styled-components';
+import PlaygroundImage from '../images/playground.svg';
+import Layout from '../components/layout';
 
 const Playground = () => {
   return (
@@ -11,7 +10,7 @@ const Playground = () => {
         <PlaygroundImage className="playground" alt="Closed playground" />
 
         <span>
-          Looking for the code? Visit the{" "}
+          Looking for the code? Visit the{' '}
           <a
             href="https://github.com/simjes/playground"
             title="https://github.com/simjes/playground"

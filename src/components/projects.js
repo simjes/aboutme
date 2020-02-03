@@ -1,8 +1,7 @@
-import { graphql, useStaticQuery, Link } from 'gatsby';
+import { graphql, useStaticQuery } from 'gatsby';
 import Img from 'gatsby-image';
 import React from 'react';
 import styled from 'styled-components';
-import SectionTitle from './sectionTitle';
 
 const PICTURE_QUERY = graphql`
   query {
@@ -21,24 +20,7 @@ const Projects = () => {
 
   return (
     <Root>
-      <ContentWrapper>
-        {/* <Content tabIndex="0">
-          <SectionTitle title="The Playground" />
-          <p>
-            The <Link to="/playground/">playground</Link> is a{' '}
-            <a
-              href="https://github.com/simjes/playground"
-              title="https://github.com/simjes/playground"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              repository
-            </a>{' '}
-            that will contains small and simple applications to test out new
-            technologies
-          </p>
-        </Content> */}
-      </ContentWrapper>
+      <ContentWrapper />
 
       <Img
         style={{
@@ -85,16 +67,16 @@ const Overlay = styled.div`
   background: linear-gradient(60deg, #12c2e999, #c471ed99, #f64f5999);
 `;
 
-const Content = styled.div`
-  padding: 20px;
-  /* Fallback background for Edge */
-  background: ${props => props.theme.backgroundColor};
-  background: ${props => props.theme.backgroundColor}ee;
-  border-bottom: 4px solid ${props => props.theme.secondaryColor};
-  outline: none;
-  border-radius: 4px;
+// const Content = styled.div`
+//   padding: 20px;
+//   /* Fallback background for Edge */
+//   background: ${props => props.theme.backgroundColor};
+//   background: ${props => props.theme.backgroundColor}ee;
+//   border-bottom: 4px solid ${props => props.theme.secondaryColor};
+//   outline: none;
+//   border-radius: 4px;
 
-  &.focus-visible {
-    border-color: ${props => props.theme.tertiaryColor};
-  }
-`;
+//   &.focus-visible {
+//     border-color: ${props => props.theme.tertiaryColor};
+//   }
+// `;

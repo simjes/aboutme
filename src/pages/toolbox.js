@@ -1,8 +1,8 @@
-import { graphql, useStaticQuery } from "gatsby";
-import React from "react";
-import styled from "styled-components";
-import Layout from "../components/layout";
-import Tags from "../components/tags";
+import { graphql, useStaticQuery } from 'gatsby';
+import React from 'react';
+import styled from 'styled-components';
+import Layout from '../components/layout';
+import Tags from '../components/tags';
 
 const TOOLS_QUERY = graphql`
   query {

@@ -64,12 +64,18 @@ SEO.defaultProps = {
   lang: `en`,
   meta: [],
   keywords: [],
+  description: '',
 };
 
 SEO.propTypes = {
   description: PropTypes.string,
   lang: PropTypes.string,
-  meta: PropTypes.array,
+  meta: PropTypes.arrayOf(
+    PropTypes.shape({
+      property: PropTypes.string,
+      content: PropTypes.sring,
+    }),
+  ),
   keywords: PropTypes.arrayOf(PropTypes.string),
   title: PropTypes.string.isRequired,
 };
