@@ -32,13 +32,17 @@ export default function Template({
   return (
     <ThemeProvider theme={theme}>
       <Root>
-        <h1>{event.name}</h1>
-        {posts.map(post => (
-          <Post>
-            <h2>{post.name}</h2>
-            <img src={post.imageUrl} />
-          </Post>
-        ))}
+        <div>
+          <h1>{event.name}</h1>
+          <Grid>
+            {posts.map(post => (
+              <Post>
+                <h2>{post.name}</h2>
+                <img src={post.imageUrl} />
+              </Post>
+            ))}
+          </Grid>
+        </div>
       </Root>
     </ThemeProvider>
   );
@@ -54,4 +58,9 @@ const Root = styled.section`
 
 const Post = styled.article`
   max-width: ${props => props.theme.maxWidth};
+`;
+
+const Grid = styled.ul`
+  display: grid;
+  margin: 0;
 `;
