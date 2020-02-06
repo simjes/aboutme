@@ -7,7 +7,7 @@ const PROFILE_PICTURE_QUERY = graphql`
   query {
     profilePicture: file(relativePath: { eq: "profilePicture.jpg" }) {
       childImageSharp {
-        fixed(width: 250, height: 250) {
+        fixed(width: 150, height: 150) {
           ...GatsbyImageSharpFixed
         }
       }

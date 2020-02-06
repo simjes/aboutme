@@ -10,8 +10,8 @@ const Company = ({ logoFile, name, position, period, active }) => (
         <CompanyLogo src={logoFile} />
       </LogoContainer>
       <Name>{name}</Name>
-      <div>{position}</div>
-      <div>{period}</div>
+      <div className="details">{position}</div>
+      <div className="details">{period}</div>
       <Hr active={active} tabIndex="0" />
     </Content>
   </Root>
@@ -39,6 +39,10 @@ const Content = styled.div`
   align-items: center;
   text-align: center;
   margin: 20px;
+
+  .details {
+    color: ${props => props.theme.secondaryTextColor};
+  }
 `;
 
 const Hr = styled.hr`

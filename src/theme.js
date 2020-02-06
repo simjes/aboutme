@@ -5,6 +5,7 @@ export const theme = {
   secondaryColor: '#ff6d00',
   tertiaryColor: '#16da00',
   primaryTextColor: '#ffffff',
+  secondaryTextColor: '#9e7eff',
   labelTextColor: '#ffffffcc',
   maxWidth: '1200px',
 };

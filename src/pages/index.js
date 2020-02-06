@@ -1,11 +1,10 @@
 import React from 'react';
 import styled, { ThemeProvider } from 'styled-components';
-import AboutMe from '../components/aboutMe';
 import Footer from '../components/footer';
 import Header from '../components/header/header';
 import InfoGrid from '../components/infoGrid';
 import Landing from '../components/landing/landing';
-import Projects from '../components/projects';
+import Contact from '../components/contact';
 import Section from '../components/section';
 import SEO from '../components/seo';
 import { theme } from '../theme';
@@ -21,15 +20,11 @@ const IndexPage = () => (
 
       <Content>
         <Main>
-          <Section title="About me️" highlight>
-            <AboutMe />
-          </Section>
-
           <Section title="Work & Education">
             <InfoGrid />
           </Section>
 
-          <Projects />
+          <Contact />
         </Main>
 
         <Footer />

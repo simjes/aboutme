@@ -34,12 +34,13 @@ const Root = styled.button`
   border-radius: 4px 4px 0 0;
 
   svg {
-    transition: all 0.2s ease-in-out;
+    transition: fill 250ms ease-in-out, transform 150ms ease;
   }
 
   &:hover {
     svg {
       transform: scale(1.2);
+      color: ${props => props.theme.primaryColor};
     }
   }
 
