@@ -28,27 +28,36 @@ export default function Template({
   const event = fauna.findEventByID;
   const posts = fauna.postsByEventId;
 
+  const generatePost = ({ height, width, post }) => {
+    return (
+      <Post>
+        <img src={post.imageUrl} />
+      </Post>
+    );
+  };
+
+  const randomNumber = limit => Math.floor(Math.random() * limit) + 1;
+
+  const postsWithSize = Array.from(posts, post => ({
+    height: randomNumber(4),
+    width: randomNumber(4),
+    post,
+  }));
+
   // TODO - SEO - react helm
   return (
     <ThemeProvider theme={theme}>
       <Root>
         <div>
           <h1>{event.name}</h1>
-          <Grid>
-            {posts.map(post => (
-              <Post>
-                <h2>{post.name}</h2>
-                <img src={post.imageUrl} />
-              </Post>
-            ))}
-          </Grid>
+          <Gallery>{postsWithSize.map(generatePost)}</Gallery>
         </div>
       </Root>
     </ThemeProvider>
   );
 }
 
-const Root = styled.section`
+const Root = styled.article`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -56,11 +65,11 @@ const Root = styled.section`
   margin-top: 10em;
 `;
 
-const Post = styled.article`
+const Post = styled.li`
   max-width: ${props => props.theme.maxWidth};
 `;
 
-const Grid = styled.ul`
+const Gallery = styled.ul`
   display: grid;
   margin: 0;
 `;
