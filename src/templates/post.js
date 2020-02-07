@@ -30,7 +30,7 @@ export default function Template({
 
   const generatePost = ({ height, width, post }) => {
     return (
-      <Post>
+      <Post className={`h${height} w${width}`}>
         <img src={post.imageUrl} />
       </Post>
     );
@@ -48,10 +48,8 @@ export default function Template({
   return (
     <ThemeProvider theme={theme}>
       <Root>
-        <div>
-          <h1>{event.name}</h1>
-          <Gallery>{postsWithSize.map(generatePost)}</Gallery>
-        </div>
+        <h1>{event.name}</h1>
+        <Gallery>{postsWithSize.map(generatePost)}</Gallery>
       </Root>
     </ThemeProvider>
   );
@@ -61,15 +59,59 @@ const Root = styled.article`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   margin-top: 10em;
-`;
-
-const Post = styled.li`
-  max-width: ${props => props.theme.maxWidth};
+  height: 100%;
 `;
 
 const Gallery = styled.ul`
   display: grid;
+  grid-template-columns: repeat(auto-fill, 200px);
+  grid-auto-rows: 200px;
+  grid-auto-flow: dense;
   margin: 0;
+  width: 100%;
+  max-width: ${props => props.theme.maxWidth};
+  flex: 1 1 auto;
 `;
+
+
+const Post = styled.li`
+  list-style: none;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 1;
+  grid-template-rows: 1;
+
+  img {
+    grid-column: 1 / -1;
+    grid-row: 1 / -1;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &.h2 {
+    grid-column: span 2;
+  }
+
+  &.h3 {
+    grid-column: span 3;
+  }
+
+  &.h4 {
+    grid-column: span 4;
+  }
+
+  &.w2 {
+    grid-row: span 2;
+  }
+
+  &.w3 {
+    grid-row: span 3;
+  }
+
+  &.w4 {
+    grid-row: span 4;
+  }
+`;
+
