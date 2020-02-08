@@ -1,33 +1,37 @@
-/* eslint-disable */
-// TODO: Remove lint disable
+import { shape, string, func, number } from 'prop-types';
 import React, { useEffect, useState } from 'react';
-import styled, { ThemeProvider } from 'styled-components';
+import styled from 'styled-components';
 
-const Post = ({post}) => {
-  const [size, setSize] = useState({});
+const Post = ({ post, open, index }) => {
+  const [gallerySize, setGallerySize] = useState({});
 
   useEffect(() => {
     const randomNumber = limit => Math.floor(Math.random() * limit) + 1;
 
-    setSize({
+    setGallerySize({
       height: randomNumber(4),
       width: randomNumber(4),
     });
   }, [post]);
 
   return (
-    <Root className={`h${size.height} w${size.width}`}>
-      <button
-        alt="Expand image"
-        // disabled={!!openIndex}
-        // onClick={() => expand(index)}
-      >
-        <img src={post.imageUrl} />
+    <Root className={`h${gallerySize.height} w${gallerySize.width}`}>
+      <button onClick={() => open(index)}>
+        <img src={post.imageUrl} alt={post.name} />
       </button>
     </Root>
   );
 };
 
+Post.propTypes = {
+  open: func.isRequired,
+  index: number.isRequired,
+  post: shape({
+    imageUrl: string.isRequired,
+    name: string.isRequired,
+    published: string.isRequired,
+  }).isRequired,
+};
 
 export default Post;
 

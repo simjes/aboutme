@@ -1,17 +1,12 @@
 /* eslint-disable */
 // TODO: Remove lint disable
-import React, { useState, useRef, useEffect } from 'react';
 import { graphql } from 'gatsby';
-import {
-  useTransition,
-  useSpring,
-  useChain,
-  config,
-  animated,
-} from 'react-spring';
+import React, { useState } from 'react';
 import styled, { ThemeProvider } from 'styled-components';
+import Post from '../components/post';
 import { theme } from '../theme';
-import Post from '../components/post'
+import Lightbox from 'react-spring-lightbox';
+import LightboxHeader from '../components/LightboxHeader';
 
 export const pageQuery = graphql`
   query($id: ID!) {
@@ -32,33 +27,57 @@ export const pageQuery = graphql`
 export default function Template({
   data, // this prop will be injected by the GraphQL query
 }) {
-  // const springRef = useRef();
-
   const { fauna } = data;
   const event = fauna.findEventByID;
   const posts = fauna.postsByEventId;
+  const images = posts.map(post => ({
+    src: post.imageUrl,
+    alt: post.name,
+  }));
 
-  // const { size, opacity, ...rest } = useSpring({
-  //   ref: springRef,
-  //   config: config.stiff,
-  //   from: { size: '20%', background: 'hotpink' },
-  //   to: {
-  //     size: open ? '100%' : '20%',
-  //     background: open ? 'white' : 'hotpink',
-  //   },
-  // });
+  const [open, setOpen] = useState(false);
+  const [currentImageIndex, setCurrentIndex] = useState(0);
 
+  const gotoPrevious = () =>
+    currentImageIndex > 0 && setCurrentIndex(currentImageIndex - 1);
+
+  const gotoNext = () =>
+    currentImageIndex + 1 < images.length &&
+    setCurrentIndex(currentImageIndex + 1);
+
+  const close = () => {
+    setOpen(false);
+  };
+
+  const openImage = imageIndex => {
+    setCurrentIndex(imageIndex);
+    setOpen(true);
+  };
 
   // TODO - SEO - react helm
   return (
     <ThemeProvider theme={theme}>
       <Root>
-        <h1>{event.name}</h1>
+        <H1>{event.name}</H1>
         <Gallery>
           {posts.map((post, index) => (
-            <Post key={index} post={post} />
+            <Post key={index} post={post} index={index} open={openImage} />
           ))}
         </Gallery>
+        <StyledLightbox
+          isOpen={open}
+          onClose={close}
+          onPrev={gotoPrevious}
+          onNext={gotoNext}
+          currentIndex={currentImageIndex}
+          images={images}
+          renderHeader={() => (
+            <LightboxHeader
+              title={images[currentImageIndex].alt}
+              close={close}
+            />
+          )}
+        />
       </Root>
     </ThemeProvider>
   );
@@ -84,4 +103,12 @@ const Gallery = styled.ul`
   flex: 1 1 auto;
 `;
 
+const StyledLightbox = styled(Lightbox)`
+  background: ${props => props.theme.foregroundColor}ee;
+`;
 
+const H1 = styled.h1`
+  font-family: 'lazer84';
+  color: cyan;
+  text-shadow: -5px 5px 0px #e100ff;
+`;
