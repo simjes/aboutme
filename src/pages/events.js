@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import Layout from '../components/layout';
 import { lazerTitle } from '../theme';
 
-// TODO: Refactor out to shared queries
+// TODO: Refactor out to shared queries - same query in gatsby-node
 const EVENTS_QUERY = graphql`
   query {
     fauna {

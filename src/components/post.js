@@ -39,13 +39,9 @@ const Root = styled.li`
   list-style: none;
   margin: 0;
   overflow: hidden;
-  display: grid;
-  grid-template-columns: 1;
-  grid-template-rows: 1;
 
   button {
-    grid-column: 1 / -1;
-    grid-row: 1 / -1;
+    height: 100%;
     margin: 0;
     padding: 0;
 
