@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { func, string } from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
+import { lazerTitle } from '../../theme';
 
 const LightboxHeader = ({ title, close }) => {
   return (
@@ -41,7 +42,5 @@ const Close = styled.button`
 `;
 
 const H1 = styled.h1`
-  font-family: 'lazer84';
-  color: cyan;
-  text-shadow: -5px 5px 0px #e100ff;
+  ${lazerTitle}
 `;

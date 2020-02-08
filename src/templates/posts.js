@@ -7,7 +7,8 @@ import styled, { ThemeProvider } from 'styled-components';
 import LightboxHeader from '../components/lightbox/LightboxHeader';
 import Navigation from '../components/lightbox/Navigation';
 import Post from '../components/post';
-import { theme } from '../theme';
+import { lazerTitle, theme } from '../theme';
+import SEO from '../components/seo';
 
 export const pageQuery = graphql`
   query($id: ID!) {
@@ -55,9 +56,9 @@ export default function Template({
     setOpen(true);
   };
 
-  // TODO - SEO - react helm
   return (
     <ThemeProvider theme={theme}>
+      <SEO title={event.name} />
       <Root>
         <H1>{event.name}</H1>
         <Gallery>
@@ -65,6 +66,7 @@ export default function Template({
             <Post key={index} post={post} index={index} open={openImage} />
           ))}
         </Gallery>
+        
         <StyledLightbox
           isOpen={open}
           onClose={close}
@@ -123,7 +125,5 @@ const StyledLightbox = styled(Lightbox)`
 `;
 
 const H1 = styled.h1`
-  font-family: 'lazer84';
-  color: cyan;
-  text-shadow: -5px 5px 0px #e100ff;
+  ${lazerTitle}
 `;

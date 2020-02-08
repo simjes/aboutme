@@ -1,3 +1,5 @@
+import { css } from 'styled-components';
+
 export const theme = {
   backgroundColor: '#1B1B35',
   foregroundColor: '#24243E',
@@ -12,3 +14,9 @@ export const theme = {
 
 export const MD = '768px';
 export const XS = '576px';
+
+export const lazerTitle = css`
+  font-family: 'lazer84';
+  color: cyan;
+  text-shadow: -5px 5px 0px #e100ff;
+`;
