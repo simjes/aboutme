@@ -5,7 +5,7 @@ const path = require(`path`);
 
 exports.createPages = async ({ actions, graphql, reporter }) => {
   const { createPage } = actions;
-  const eventTemplate = path.resolve(`src/templates/post.js`);
+  const eventTemplate = path.resolve(`src/templates/posts.js`);
   const { data, errors } = await graphql(`
     {
       fauna {
