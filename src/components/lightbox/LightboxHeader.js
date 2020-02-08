@@ -1,12 +1,16 @@
-import React from 'react';
+import { faTimes } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { func, string } from 'prop-types';
+import React from 'react';
 import styled from 'styled-components';
 
 const LightboxHeader = ({ title, close }) => {
   return (
     <Header>
       <H1>{title}</H1>
-      <Close onClick={close}>Close</Close>
+      <Close onClick={close}>
+        <FontAwesomeIcon icon={faTimes} />
+      </Close>
     </Header>
   );
 };
@@ -29,7 +33,7 @@ const Header = styled.header`
 
 const Close = styled.button`
   background: none;
-  transition: color 250ms ease-in-out, transform 150ms ease;
+  transition: color 250ms ease-in-out;
 
   &:hover {
     color: ${props => props.theme.primaryColor};

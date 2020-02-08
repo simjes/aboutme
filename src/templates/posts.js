@@ -2,11 +2,12 @@
 // TODO: Remove lint disable
 import { graphql } from 'gatsby';
 import React, { useState } from 'react';
+import Lightbox from 'react-spring-lightbox';
 import styled, { ThemeProvider } from 'styled-components';
+import LightboxHeader from '../components/lightbox/LightboxHeader';
+import Navigation from '../components/lightbox/Navigation';
 import Post from '../components/post';
 import { theme } from '../theme';
-import Lightbox from 'react-spring-lightbox';
-import LightboxHeader from '../components/LightboxHeader';
 
 export const pageQuery = graphql`
   query($id: ID!) {
@@ -75,6 +76,20 @@ export default function Template({
             <LightboxHeader
               title={images[currentImageIndex].alt}
               close={close}
+            />
+          )}
+          renderPrevButton={({ canPrev }) => (
+            <Navigation
+              position="left"
+              onClick={gotoPrevious}
+              disabled={!canPrev}
+            />
+          )}
+          renderNextButton={({ canNext }) => (
+            <Navigation
+              position="right"
+              onClick={gotoNext}
+              disabled={!canNext}
             />
           )}
         />
