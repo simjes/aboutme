@@ -28,7 +28,7 @@ type Event {
 
 type Post {
   name: String!
-  imageUrl: String!
+  publicImageId: String!
   published: Time!
   event: Event!
 }

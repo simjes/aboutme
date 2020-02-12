@@ -1,8 +1,8 @@
-import { shape, string, func, number } from 'prop-types';
+import { shape, string, func } from 'prop-types';
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
-const Post = ({ post, open, index }) => {
+const Post = ({ post, open }) => {
   const [gallerySize, setGallerySize] = useState({});
 
   useEffect(() => {
@@ -16,8 +16,8 @@ const Post = ({ post, open, index }) => {
 
   return (
     <Root className={`h${gallerySize.height} w${gallerySize.width}`}>
-      <button onClick={() => open(index)}>
-        <img src={post.imageUrl} alt={post.name} />
+      <button onClick={open}>
+        <img src={post.src} alt={post.alt} />
       </button>
     </Root>
   );
@@ -25,11 +25,9 @@ const Post = ({ post, open, index }) => {
 
 Post.propTypes = {
   open: func.isRequired,
-  index: number.isRequired,
   post: shape({
-    imageUrl: string.isRequired,
-    name: string.isRequired,
-    published: string.isRequired,
+    src: string.isRequired,
+    alt: string.isRequired,
   }).isRequired,
 };
 

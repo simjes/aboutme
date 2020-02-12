@@ -1,7 +1,7 @@
 /* eslint-disable */
 // TODO: Remove lint disable
 import { graphql } from 'gatsby';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Lightbox from 'react-spring-lightbox';
 import styled, { ThemeProvider } from 'styled-components';
 import LightboxHeader from '../components/lightbox/LightboxHeader';
@@ -19,9 +19,15 @@ export const pageQuery = graphql`
         endDate
       }
       postsByEventId(id: $id) {
-        imageUrl
+        publicImageId
         name
         published
+      }
+    }
+    allCloudinaryMedia {
+      nodes {
+        secure_url
+        public_id
       }
     }
   }
@@ -29,22 +35,33 @@ export const pageQuery = graphql`
 export default function Template({
   data, // this prop will be injected by the GraphQL query
 }) {
-  const { fauna } = data;
+  const { fauna, allCloudinaryMedia } = data;
   const event = fauna.findEventByID;
-  const posts = fauna.postsByEventId;
-  const images = posts.map(post => ({
-    src: post.imageUrl,
-    alt: post.name,
-  }));
-
   const [open, setOpen] = useState(false);
   const [currentImageIndex, setCurrentIndex] = useState(0);
+  const [posts, setPosts] = useState([]);
+
+  useEffect(() => {
+    const faunaPosts = fauna.postsByEventId;
+    const imageDictionary = {};
+    allCloudinaryMedia.nodes.forEach(node => {
+      imageDictionary[node.public_id] = node.secure_url;
+    });
+
+    const postsWithImages = faunaPosts.map(post => ({
+      ...post,
+      src: imageDictionary[post.publicImageId],
+      alt: post.name,
+    }));
+
+    setPosts(postsWithImages);
+  }, [fauna, allCloudinaryMedia]);
 
   const gotoPrevious = () =>
     currentImageIndex > 0 && setCurrentIndex(currentImageIndex - 1);
 
   const gotoNext = () =>
-    currentImageIndex + 1 < images.length &&
+    currentImageIndex + 1 < lightboxImages.length &&
     setCurrentIndex(currentImageIndex + 1);
 
   const close = () => {
@@ -63,38 +80,40 @@ export default function Template({
         <H1>{event.name}</H1>
         <Gallery>
           {posts.map((post, index) => (
-            <Post key={index} post={post} index={index} open={openImage} />
+            <Post key={index} post={post} open={() => openImage(index)} />
           ))}
         </Gallery>
-        
-        <StyledLightbox
-          isOpen={open}
-          onClose={close}
-          onPrev={gotoPrevious}
-          onNext={gotoNext}
-          currentIndex={currentImageIndex}
-          images={images}
-          renderHeader={() => (
-            <LightboxHeader
-              title={images[currentImageIndex].alt}
-              close={close}
-            />
-          )}
-          renderPrevButton={({ canPrev }) => (
-            <Navigation
-              position="left"
-              onClick={gotoPrevious}
-              disabled={!canPrev}
-            />
-          )}
-          renderNextButton={({ canNext }) => (
-            <Navigation
-              position="right"
-              onClick={gotoNext}
-              disabled={!canNext}
-            />
-          )}
-        />
+
+        {posts.length > 0 && (
+          <StyledLightbox
+            isOpen={open}
+            onClose={close}
+            onPrev={gotoPrevious}
+            onNext={gotoNext}
+            currentIndex={currentImageIndex}
+            images={posts}
+            renderHeader={() => (
+              <LightboxHeader
+                title={posts[currentImageIndex].alt}
+                close={close}
+              />
+            )}
+            renderPrevButton={({ canPrev }) => (
+              <Navigation
+                position="left"
+                onClick={gotoPrevious}
+                disabled={!canPrev}
+              />
+            )}
+            renderNextButton={({ canNext }) => (
+              <Navigation
+                position="right"
+                onClick={gotoNext}
+                disabled={!canNext}
+              />
+            )}
+          />
+        )}
       </Root>
     </ThemeProvider>
   );
