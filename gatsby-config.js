@@ -60,6 +60,7 @@ module.exports = {
         resourceType: `image`,
         maxResults: 500,
         prefix: `aboutme-events/`,
+        context: true,
       },
     },
     `gatsby-plugin-styled-components`,
