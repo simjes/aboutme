@@ -2,7 +2,8 @@ require('dotenv').config({
   path: `.env`,
 });
 
-const isDev = process.env.NETLIFY_DEV;
+const isDev =
+  process.env.NETLIFY_DEV || process.env.CONTEXT === 'branch-deploy';
 
 module.exports = {
   siteMetadata: {

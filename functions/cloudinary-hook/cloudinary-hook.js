@@ -2,7 +2,8 @@
 const fetch = require('node-fetch');
 const GraphQLClient = require('graphql-request').GraphQLClient;
 
-const isDev = process.env.NETLIFY_DEV;
+const isDev =
+  process.env.NETLIFY_DEV || process.env.CONTEXT === 'branch-deploy';
 const endpoint = process.env.FAUNA_URL;
 const token = isDev ? process.env.FAUNA_KEY_DEV : process.env.FAUNA_KEY;
 const buildTrigger = isDev
