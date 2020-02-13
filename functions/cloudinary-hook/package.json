@@ -1,8 +1,8 @@
 {
-  "name": "node-fetch",
+  "name": "cloudinary-hook",
   "version": "1.0.0",
-  "description": "netlify functions:create - default template for node fetch function",
-  "main": "node-fetch.js",
+  "description": "hook for saving picture metadata after cloudinary upload",
+  "main": "cloudinary-hook.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -15,6 +15,7 @@
   "license": "MIT",
   "dependencies": {
     "date-fns": "^2.9.0",
-    "graphql-request": "^1.8.2"
+    "graphql-request": "^1.8.2",
+    "node-fetch": "^2.6.0"
   }
 }

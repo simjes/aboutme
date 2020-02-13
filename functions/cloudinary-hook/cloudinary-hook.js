@@ -1,88 +1,104 @@
 /* eslint-disable */
-const GraphQLClient = require('graphql-request');
-const isWithinRange = require('date-fns/is_within_range');
+const fetch = require('node-fetch');
+const GraphQLClient = require('graphql-request').GraphQLClient;
+const isWithinInterval = require('date-fns/isWithinInterval');
 
 const endpoint = process.env.FAUNA_URL;
 const token = process.env.FAUNA_KEY;
+const buildTrigger = process.env.BUILD_HOOK_URL;
 
 exports.handler = async function(event, context) {
+  const content = JSON.parse(event.body);
   const published = new Date().toISOString();
   const client = new GraphQLClient(endpoint, {
     headers: {
-      authroization: `Bearer ${token}`,
+      authorization: `Bearer ${token}`,
     },
   });
 
   try {
-    const allEvents = await client.request(endpoint, allEventsQuery);
-    console.log(allEvents);
-    const currentEvent = allEvents.find(event =>
-      isWithinRange(published, event.startDate, event.endDate),
-    );
+    const allEventsResponse = await client.request(allEventsQuery);
+    if (allEventsResponse.error) {
+      throw new Error('Could not get events');
+    }
 
+    const currentEvent = allEventsResponse.allEvents.data.find(event =>
+      isWithinInterval(Date.parse(published), {
+        start: Date.parse(event.startDate),
+        end: Date.parse(event.endDate),
+      }),
+    );
     if (!currentEvent) {
       throw new Error('There is currently no ongoing event');
     }
 
     const variables = {
-      name: event.context.custom.caption,
-      publicImageId: event.public_id,
+      name: content.context.custom.caption,
+      publicImageId: content.public_id,
       published,
-      eventId: currentEvent.id,
+      eventId: currentEvent._id,
     };
 
-    const savePost = await client.request(
-      endpoint,
+    const savePostResponse = await client.request(
       createPostMutation,
       variables,
     );
+    if (savePostResponse.error) {
+      console.log(
+        `Unable to add a post to event with id: ${variables.eventId}`,
+      );
+      throw new Error('Could not save the post');
+    }
 
-    console.log(savePost);
+    const triggerBuild = await fetch(buildTrigger, { method: 'POST' });
+    if (!triggerBuild.error) {
+      console.log('Unable to trigger build');
+    }
 
     return {
       statusCode: 200,
-      body: JSON.stringify({ msg: 'wee' }),
+      body: JSON.stringify({ msg: savePostResponse.createPost }),
     };
   } catch (err) {
-    console.log(err); // output to netlify function log
+    console.log(err);
     return {
       statusCode: 500,
-      body: JSON.stringify({ msg: err.message }), // Could be a custom message or object i.e. JSON.stringify(err)
+      body: JSON.stringify({ msg: err.message }),
     };
   }
 };
 
-// Possible improvment is to have a custom fuana resolver to get the current event
-const allEventsQuery = `{
-    query allEvents {
-      allEvents {
-        data {
-          _id
-          name
-          startDate
-          endDate
-        }
-      }
-    }
-  }`;
-
-const createPostMutation = `
-    mutation createPost(
-      $name: String!
-      $publicImageId: String!
-      $published: Time!
-      $eventId: ID!
-    ) {
-      createPost(
-        data: {
-          name: $name
-          publicImageId: $publicImageId
-          published: $published
-          event: { connect: $eventId }
-        }
-      ) {
+// Possible improvement is to have a custom fuana resolver to get the current event
+const allEventsQuery = `
+  query {
+    allEvents {
+      data {
         _id
         name
+        startDate
+        endDate
       }
     }
-  `;
+  }
+`;
+
+const createPostMutation = `
+  mutation createPost(
+    $name: String!
+    $publicImageId: String!
+    $published: Time!
+    $eventId: ID!
+  ) {
+    createPost(
+      data: {
+        name: $name
+        publicImageId: $publicImageId
+        published: $published
+        event: { connect: $eventId }
+      }
+    ) {
+      _id
+      name
+    }
+  }
+`;
