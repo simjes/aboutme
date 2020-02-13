@@ -63,7 +63,7 @@ module.exports = {
         apiSecret: process.env.CLOUDINARY_API_SECRET,
         resourceType: `image`,
         maxResults: 500,
-        prefix: `aboutme-events/`,
+        prefix: isDev ? 'aboutme-events-dev/' : 'aboutme-events/',
         context: true,
       },
     },
