@@ -7,6 +7,8 @@ const token = process.env.FAUNA_KEY;
 const buildTrigger = process.env.BUILD_HOOK_URL;
 
 exports.handler = async function(event, context) {
+  console.log(event)
+  console.log(context)
   const content = JSON.parse(event.body);
   const published = new Date().toISOString();
   const client = new GraphQLClient(endpoint, {
