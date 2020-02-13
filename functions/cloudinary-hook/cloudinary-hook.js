@@ -54,7 +54,7 @@ exports.handler = async function(event, context) {
     }
 
     const triggerBuild = await fetch(buildTrigger, { method: 'POST' });
-    if (!triggerBuild.error) {
+    if (triggerBuild.error) {
       console.log('Unable to trigger build');
     }
 
