@@ -41,7 +41,7 @@ const Events = () => {
           const year = new Date(event.startDate).getFullYear();
 
           return (
-            <Link to={`/${urlifyName(event.name)}-${year}`}>
+            <Link to={`/events/${urlifyName(event.name)}-${year}`}>
               {event.name} - {year}
             </Link>
           );

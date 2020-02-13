@@ -38,7 +38,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   events.forEach(event => {
     if (event.posts.data.length > 0) {
       createPage({
-        path: `${urlifyName(event.name)}-${new Date(
+        path: `/events/${urlifyName(event.name)}-${new Date(
           event.startDate,
         ).getFullYear()}`,
         component: eventTemplate,
