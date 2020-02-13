@@ -2,13 +2,9 @@
 const fetch = require('node-fetch');
 const GraphQLClient = require('graphql-request').GraphQLClient;
 
-const isDev =
-  process.env.NETLIFY_DEV || process.env.CONTEXT === 'branch-deploy';
 const endpoint = process.env.FAUNA_URL;
-const token = isDev ? process.env.FAUNA_KEY_DEV : process.env.FAUNA_KEY;
-const buildTrigger = isDev
-  ? process.env.BUILD_HOOK_URL_DEV
-  : process.env.BUILD_HOOK_URL;
+const token = process.env.FAUNA_KEY;
+const buildTrigger = process.env.BUILD_HOOK_URL;
 
 exports.handler = async function(event, context) {
   const content = JSON.parse(event.body);

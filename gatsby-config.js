@@ -2,9 +2,6 @@ require('dotenv').config({
   path: `.env`,
 });
 
-const isDev =
-  process.env.NETLIFY_DEV || process.env.CONTEXT === 'branch-deploy';
-
 module.exports = {
   siteMetadata: {
     title: `Simjes`,
@@ -49,9 +46,7 @@ module.exports = {
         fieldName: 'fauna',
         url: process.env.FAUNA_URL,
         headers: {
-          Authorization: `Bearer ${
-            isDev ? process.env.FAUNA_KEY_DEV : process.env.FAUNA_KEY
-          }`,
+          Authorization: `Bearer ${process.env.FAUNA_KEY}`,
         },
         refetchInterval: 60,
       },
@@ -64,7 +59,7 @@ module.exports = {
         apiSecret: process.env.CLOUDINARY_API_SECRET,
         resourceType: `image`,
         maxResults: 500,
-        prefix: isDev ? 'aboutme-events-dev/' : 'aboutme-events/',
+        prefix: process.env.CLOUDINARY_PREFIX,
         context: true,
       },
     },
