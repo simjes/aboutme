@@ -1,7 +1,6 @@
 /* eslint-disable */
 const fetch = require('node-fetch');
 const GraphQLClient = require('graphql-request').GraphQLClient;
-const isWithinInterval = require('date-fns/isWithinInterval');
 
 const isDev = process.env.NETLIFY_DEV;
 const endpoint = process.env.FAUNA_URL;
@@ -25,12 +24,13 @@ exports.handler = async function(event, context) {
       throw new Error('Could not get events');
     }
 
-    const currentEvent = allEventsResponse.allEvents.data.find(event =>
-      isWithinInterval(Date.parse(published), {
-        start: Date.parse(event.startDate),
-        end: Date.parse(event.endDate),
-      }),
-    );
+    const currentEvent = allEventsResponse.allEvents.data.find(event => {
+      const currentDate = Date.parse(published);
+      const eventFrom = Date.parse(event.startDate);
+      const eventTo = Date.parse(event.endDate);
+
+      return currentDate >= eventFrom && currentDate <= eventTo;
+    });
     if (!currentEvent) {
       throw new Error('There is currently no ongoing event');
     }
