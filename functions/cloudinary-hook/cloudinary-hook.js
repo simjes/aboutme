@@ -3,9 +3,12 @@ const fetch = require('node-fetch');
 const GraphQLClient = require('graphql-request').GraphQLClient;
 const isWithinInterval = require('date-fns/isWithinInterval');
 
+const isDev = process.env.NETLIFY_DEV;
 const endpoint = process.env.FAUNA_URL;
-const token = process.env.FAUNA_KEY;
-const buildTrigger = process.env.BUILD_HOOK_URL;
+const token = isDev ? process.env.FAUNA_KEY_DEV : process.env.FAUNA_KEY;
+const buildTrigger = isDev
+  ? process.env.BUILD_HOOK_URL_DEV
+  : process.env.BUILD_HOOK_URL;
 
 exports.handler = async function(event, context) {
   const content = JSON.parse(event.body);

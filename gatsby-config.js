@@ -2,6 +2,8 @@ require('dotenv').config({
   path: `.env`,
 });
 
+const isDev = process.env.NETLIFY_DEV;
+
 module.exports = {
   siteMetadata: {
     title: `Simjes`,
@@ -46,7 +48,9 @@ module.exports = {
         fieldName: 'fauna',
         url: process.env.FAUNA_URL,
         headers: {
-          Authorization: `Bearer ${process.env.FAUNA_KEY}`,
+          Authorization: `Bearer ${
+            isDev ? process.env.FAUNA_KEY_DEV : process.env.FAUNA_KEY
+          }`,
         },
         refetchInterval: 60,
       },
