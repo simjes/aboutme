@@ -4,4 +4,4 @@
   publish = "public"
 
 [context.branch-deploy.environment]
-  NETLIFY_DEV = true
+  NETLIFY_DEV = "true"
