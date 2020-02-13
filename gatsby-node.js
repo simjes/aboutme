@@ -1,7 +1,7 @@
 /* eslint-disable */
 // TODO: Remove lint disable
-
 const path = require(`path`);
+const urlifyName = require('./src/utils/route').urlifyName;
 
 exports.createPages = async ({ actions, graphql, reporter }) => {
   const { createPage } = actions;
@@ -38,8 +38,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   events.forEach(event => {
     if (event.posts.data.length > 0) {
       createPage({
-        // todo: make util
-        path: `${event.name.toLowerCase()}-${new Date(
+        path: `${urlifyName(event.name)}-${new Date(
           event.startDate,
         ).getFullYear()}`,
         component: eventTemplate,

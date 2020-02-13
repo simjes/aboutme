@@ -3,6 +3,7 @@ import React from 'react';
 import styled from 'styled-components';
 import Layout from '../components/layout';
 import { lazerTitle } from '../theme';
+import { urlifyName } from '../utils/route';
 
 // TODO: Refactor out to shared queries - same query in gatsby-node
 const EVENTS_QUERY = graphql`
@@ -40,7 +41,7 @@ const Events = () => {
           const year = new Date(event.startDate).getFullYear();
 
           return (
-            <Link to={`/${event.name.toLowerCase()}-${year}`}>
+            <Link to={`/${urlifyName(event.name)}-${year}`}>
               {event.name} - {year}
             </Link>
           );
